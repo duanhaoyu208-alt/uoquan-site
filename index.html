@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUOQUAN LIFE | Global Supply Chain</title>
+    <title>GUOQUAN LIFE | Supply Chain Integrator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Roboto', sans-serif; }
         
         /* 1. 首页背景图 */
         .hero-bg {
-            /* ⚠️ 请确保您的图片名为 hero-bg.jpg */
-            background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('hero-bg.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero-bg.jpg');
             background-color: #1f2937;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
 
-        /* 2. 工厂背景图 (0.6 透明度，通透且字迹清晰) */
+        /* 2. 工厂背景图 (透明度 0.6) */
         .factory-bg {
-            /* ⚠️ 请确保您的图片名为 factory-bg.jpg */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('factory-bg.jpg');
             background-color: #111827;
             background-size: cover;
@@ -31,15 +31,10 @@
         .text-brand-red { color: #B91C1C; }
         .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; padding: 0 4px; }
         .lang-btn:hover, .lang-btn.active { opacity: 1; font-weight: 900; text-decoration: underline; color: #B91C1C; }
-        .risk-bar { transition: width 1s ease-out; }
         
         /* 图片占位符 */
         img[src=""] { display: none; }
         .img-placeholder-bg { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold; text-transform: uppercase; border: 2px dashed #d1d5db; }
-        
-        /* 滑块样式优化 */
-        input[type=range] { height: 8px; border-radius: 5px; background: #4b5563; outline: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #3b82f6; cursor: pointer; border: 2px solid white; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -59,7 +54,7 @@
                 <div class="flex items-center space-x-6">
                     <div class="hidden md:flex space-x-6">
                         <a href="#solutions" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_solution">Solutions</a>
-                        <a href="#products" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_product">Products</a>
+                        <a href="#products" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_product">Catalog</a>
                         <a href="#about" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_about">About Us</a>
                     </div>
                     <div class="flex space-x-1 text-sm border-l pl-4 border-gray-300 select-none">
@@ -69,30 +64,26 @@
                         <span class="text-gray-300">|</span>
                         <span onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</span>
                     </div>
-                    <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-key="btn_quote">Get Quote</a>
+                    <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-key="btn_quote">Start Sourcing</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <header class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
-        <div class="max-w-4xl px-4">
+        <div class="max-w-5xl px-4">
             <p class="text-lg md:text-xl uppercase tracking-widest mb-4 opacity-90 border-b border-white/30 inline-block pb-2" data-key="hero_sub">
-                Global Supply Chain · Publicly Listed Company
+                China’s Premier Supply Chain Integrator
             </p>
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight" data-key="hero_title">
-                Global Fresh & Frozen <br> Ingredients Supply Chain
+                One Partner. Premium & <br> <span class="text-yellow-400">Halal</span> Supply Chain.
             </h1>
             <p class="text-xl md:text-2xl mb-10 text-gray-200 font-light" data-key="hero_desc">
-                From Fresh Vegetables to Frozen Ingredients. <br>One-Stop Procurement for Global Restaurants & Distributors.
+                We integrate, verify, and consolidate. <br>Stop dealing with 10 factories. Deal with ONE trusted partner.
             </p>
             <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#products" class="px-8 py-4 brand-red text-white font-bold text-lg rounded shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-key="btn_explore">
-                    Explore Catalog
-                </a>
-                <a href="#calculator" class="px-8 py-4 bg-white/10 backdrop-blur border-2 border-white text-white font-bold text-lg rounded shadow-lg hover:bg-white hover:text-red-900 transition transform hover:-translate-y-1 flex items-center" data-key="btn_calc_hero">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    Simulate Cash Flow
+                <a href="#products" class="px-10 py-5 brand-red text-white font-bold text-xl rounded shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-key="btn_explore">
+                    View Catalog
                 </a>
             </div>
         </div>
@@ -105,12 +96,12 @@
                 <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_1">Publicly Listed</div>
             </div>
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">9,660</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_2">Retail Stores</div>
+                <div class="text-4xl font-bold text-red-500 mb-2">350+</div>
+                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_2">Partner Factories</div>
             </div>
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">60 M</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_3">Active Members</div>
+                <div class="text-4xl font-bold text-red-500 mb-2">Halal</div>
+                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_3">Certified Supply</div>
             </div>
             <div>
                 <div class="text-4xl font-bold text-red-500 mb-2">TOP 10</div>
@@ -122,31 +113,31 @@
     <section id="painpoints" class="py-24 bg-gray-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4" data-key="pain_title">Are You Paying for Hidden Supply Chain Costs?</h2>
-                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="pain_sub">Don't let inefficiency eat up your profit margins.</p>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4" data-key="pain_title">Tired of Fragmented Sourcing?</h2>
+                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="pain_sub">Dealing with multiple factories and inconsistent quality eats your profit.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-10 items-stretch">
                 <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
                     <div class="flex items-center gap-4 mb-6 border-b border-gray-100 pb-4">
-                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div>
-                        <h3 class="text-2xl font-bold text-gray-600" data-key="pain_loss_title">Traditional Sourcing</h3>
+                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fas fa-times text-xl"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-600" data-key="pain_loss_title">The Old Way</h3>
                     </div>
-                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Risk Level</span><span class="text-red-500">High (90%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-red-500 h-3 rounded-full risk-bar" style="width: 90%"></div></div></div>
+                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Hassle Level</span><span class="text-red-500">High (90%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-red-500 h-3 rounded-full risk-bar" style="width: 90%"></div></div></div>
                     <ul class="space-y-6 flex-1">
-                        <li class="flex gap-4"><svg class="w-6 h-6 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg><div><strong class="block text-gray-800" data-key="pain_loss_1_head">High Capital Pressure</strong><span class="text-sm text-gray-500" data-key="pain_loss_1_desc">Forced to buy FCL. Cash flow locked.</span></div></li>
-                        <li class="flex gap-4"><svg class="w-6 h-6 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><div><strong class="block text-gray-800" data-key="pain_loss_2_head">Inventory Risk</strong><span class="text-sm text-gray-500" data-key="pain_loss_2_desc">Overstocking single SKUs leads to waste.</span></div></li>
+                        <li class="flex gap-4"><i class="fas fa-users-slash text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-key="pain_loss_1_head">Multiple Contacts</strong><span class="text-sm text-gray-500" data-key="pain_loss_1_desc">Coordinating with 10+ factories is exhausting.</span></div></li>
+                        <li class="flex gap-4"><i class="fas fa-exclamation-triangle text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-key="pain_loss_2_head">Quality Risk</strong><span class="text-sm text-gray-500" data-key="pain_loss_2_desc">Inconsistent standards and Halal compliance issues.</span></div></li>
                     </ul>
                 </div>
                 <div class="bg-white p-8 rounded-2xl border-2 border-red-700 shadow-2xl relative transform md:-translate-y-4 flex flex-col">
                     <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-700 text-white text-sm font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">Recommended</div>
                     <div class="flex items-center gap-4 mb-6 border-b border-red-100 pb-4 mt-2">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
-                        <h3 class="text-2xl font-bold text-red-900" data-key="pain_gain_title">GUOQUAN Model</h3>
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><i class="fas fa-check text-xl"></i></div>
+                        <h3 class="text-2xl font-bold text-red-900" data-key="pain_gain_title">GUOQUAN Integrator</h3>
                     </div>
-                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Capital Efficiency</span><span class="text-green-600">Excellent (95%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full risk-bar" style="width: 95%"></div></div></div>
+                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Efficiency</span><span class="text-green-600">Excellent (95%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full risk-bar" style="width: 95%"></div></div></div>
                     <ul class="space-y-6 flex-1">
-                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div><div><strong class="block text-gray-900" data-key="pain_gain_1_head">Minimum Order Quantity</strong><span class="text-sm text-gray-600" data-key="pain_gain_1_desc">Mix Fresh & Frozen. Start business with minimal capital.</span></div></li>
-                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div><div><strong class="block text-gray-900" data-key="pain_gain_2_head">5x Turnover Rate</strong><span class="text-sm text-gray-600" data-key="pain_gain_2_desc">Order only what you need. Faster cash turnover.</span></div></li>
+                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-key="pain_gain_1_head">One-Stop Partner</strong><span class="text-sm text-gray-600" data-key="pain_gain_1_desc">We manage sourcing, QA, and consolidation for you.</span></div></li>
+                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-key="pain_gain_2_head">Verified Halal</strong><span class="text-sm text-gray-600" data-key="pain_gain_2_desc">Strict on-site verification for Muslim markets.</span></div></li>
                     </ul>
                 </div>
             </div>
@@ -154,142 +145,37 @@
     </section>
 
     <section id="solutions" class="py-24 bg-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white to-gray-50 -z-10"></div>
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-20">
-                <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="sol_tag">Our Process</span>
-                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6" data-key="sol_title">One-Stop Solutions</h2>
-                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="sol_desc">We don't just supply ingredients; we provide a complete supply chain ecosystem for distributors and restaurants.</p>
+                <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="sol_tag">Our Workflow</span>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6" data-key="sol_title">Integrated Supply Chain</h2>
+                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="sol_desc">From finding the best factories to delivering market-ready products.</p>
             </div>
             <div class="grid md:grid-cols-4 gap-8 relative">
                 <div class="hidden md:block absolute top-12 left-[10%] w-[80%] h-0.5 bg-gray-200 -z-10"></div>
                 <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-red-700 text-white rounded-2xl flex items-center justify-center shadow-lg rotate-3 group-hover:rotate-12 transition"><span class="text-2xl font-black">1</span></div>
-                    <div class="mb-4 text-red-700"><svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_1_title">Full Category Selection</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_1_desc">Vegetables, Meatballs, Soup Bases, Cookware (1000+ SKU).</p>
+                    <div class="mb-4 text-red-700"><i class="fas fa-search text-4xl"></i></div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_1_title">Premium Sourcing</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_1_desc">Access our network of 350+ audited factories (Hotpot, BBQ, Snacks).</p>
                 </div>
                 <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white text-red-700 border-2 border-red-700 rounded-2xl flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-12 transition"><span class="text-2xl font-black">2</span></div>
-                    <div class="mb-4 text-red-700"><svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_2_title">Smart Consolidation</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_2_desc">Customized container combination based on your specific needs.</p>
+                    <div class="mb-4 text-red-700"><i class="fas fa-certificate text-4xl"></i></div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_2_title">Halal Verification</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_2_desc">Strict QA and Halal certification checks for Central Asian markets.</p>
                 </div>
                 <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-red-700 text-white rounded-2xl flex items-center justify-center shadow-lg rotate-3 group-hover:rotate-12 transition"><span class="text-2xl font-black">3</span></div>
-                    <div class="mb-4 text-red-700"><svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_3_title">Direct Cold Chain</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_3_desc">Full temperature control. One-stop customs clearance & delivery.</p>
+                    <div class="mb-4 text-red-700"><i class="fas fa-box-open text-4xl"></i></div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_3_title">Smart Consolidation</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_3_desc">Mix multiple SKUs (Ingredients + Packaging) into one container.</p>
                 </div>
                 <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white text-red-700 border-2 border-red-700 rounded-2xl flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-12 transition"><span class="text-2xl font-black">4</span></div>
-                    <div class="mb-4 text-red-700"><svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_4_title">Product Localization</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_4_desc">Optimizing product formulas and specifications to perfectly match local market preferences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="calculator" class="py-16 bg-gray-900 text-white relative overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-blue-900 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-            <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-                
-                <div>
-                    <span class="text-blue-500 font-bold tracking-widest uppercase mb-2 text-sm block" data-key="calc_tag">Capital Efficiency Simulator</span>
-                    <h2 class="text-3xl md:text-4xl font-black mb-4 leading-tight" data-key="calc_title">Don't Let Inventory <br> Trap Your Cash</h2>
-                    <p class="text-base text-gray-400 mb-6 leading-relaxed" data-key="calc_desc">
-                        Traditional sourcing requires high MOQs, locking up your capital in warehouses. 
-                        GUOQUAN's "Mixed Container" model improves your cash flow efficiency by 5x.
-                    </p>
-                    
-                    <ul class="space-y-4 mb-8 text-gray-300">
-                        <li class="flex items-start">
-                            <div class="bg-red-900/50 p-1.5 rounded mr-3 mt-0.5">
-                                <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <div>
-                                <strong class="block text-white text-sm" data-key="calc_trad_title">The "MOQ Trap" (Traditional)</strong>
-                                <span class="text-xs text-gray-500" data-key="calc_trad_desc">Factory MOQ = 5 Containers. Capital Locked: <strong>180 Days</strong>.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="bg-green-900/50 p-1.5 rounded mr-3 mt-0.5">
-                                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <div>
-                                <strong class="block text-white text-sm" data-key="calc_gq_title">The Agile Way (GUOQUAN)</strong>
-                                <span class="text-xs text-gray-500" data-key="calc_gq_desc">Mixed Container = 1 Container. Capital Locked: <strong>30 Days</strong>.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <a href="#inquiry" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 shadow-lg shadow-blue-900/50 text-sm" data-key="calc_btn">
-                        Get Custom Solution
-                    </a>
-                </div>
-
-                <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-2xl relative">
-                    <div class="mb-5 border-b border-gray-700 pb-3">
-                        <div class="flex justify-between items-center mb-1">
-                            <h3 class="text-white font-bold text-sm" data-key="calc_instruction_title">Comparison Tool</h3>
-                            <div class="flex items-center text-blue-400 text-[10px] px-2 py-0.5 bg-blue-900/30 rounded border border-blue-800/50">
-                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
-                                <span>Interactive</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-400 leading-snug" data-key="calc_instruction_desc">
-                            See how much capital you can free up by switching from traditional FCL to GUOQUAN's mixed container model.
-                        </p>
-                    </div>
-
-                    <div class="mb-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <svg class="w-4 h-4 text-blue-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider" data-key="calc_input_label">Drag Slider: Annual Procurement</label>
-                        </div>
-                        
-                        <div class="text-3xl font-black text-white mb-2 font-mono">
-                            $<span id="displayAmount">1,000,000</span>
-                        </div>
-
-                        <input type="range" min="100000" max="5000000" step="50000" value="1000000" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400" id="roiSlider" oninput="updateCalculator()">
-                        <div class="flex justify-between text-[10px] text-gray-500 mt-2 font-mono">
-                            <span>$100k</span>
-                            <span>$5M+</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-6 mb-4 h-48 items-end border-b border-gray-600 pb-1">
-                        <div class="flex flex-col justify-end h-full">
-                            <div class="text-red-400 font-bold text-xs mb-1 text-center" id="tradCapText">$500k Locked</div>
-                            <div id="tradBar" class="w-full bg-red-900/80 border-t-2 border-red-500 rounded-t transition-all duration-300 ease-out relative group" style="height: 20%;">
-                                <div class="absolute inset-0 flex items-center justify-center text-red-200 text-xs font-bold opacity-0 group-hover:opacity-100 transition">6 Months</div>
-                            </div>
-                            <div class="text-gray-500 text-xs text-center mt-2">Traditional</div>
-                        </div>
-                        <div class="flex flex-col justify-end h-full">
-                            <div class="text-green-400 font-bold text-xs mb-1 text-center" id="gqCapText">$83k Active</div>
-                            <div id="gqBar" class="w-full bg-green-900/80 border-t-2 border-green-500 rounded-t transition-all duration-300 ease-out relative group" style="height: 3.3%;">
-                                <div class="absolute inset-0 flex items-center justify-center text-green-200 text-xs font-bold opacity-0 group-hover:opacity-100 transition">1 Month</div>
-                            </div>
-                            <div class="text-white text-xs text-center mt-2 font-bold">GUOQUAN</div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-600 flex justify-between items-center">
-                        <div>
-                            <div class="text-[10px] text-gray-400 uppercase tracking-wide" data-key="calc_result_label">Potential Capital Release</div>
-                            <div class="text-2xl font-black text-green-400 tracking-tight flex items-center">
-                                <span class="text-lg mr-1">$</span>
-                                <span id="savingsAmount">416,667</span>
-                            </div>
-                        </div>
-                        <div class="text-[10px] text-gray-500 italic text-right max-w-[140px]" data-key="calc_note">
-                            * Based on reducing inventory from 180 to 30 days.
-                        </div>
-                    </div>
+                    <div class="mb-4 text-red-700"><i class="fas fa-ship text-4xl"></i></div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_4_title">Export Logistics</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_4_desc">We handle customs and cold-chain logistics. You just receive goods.</p>
                 </div>
             </div>
         </div>
@@ -300,7 +186,7 @@
             <div class="flex justify-between items-end mb-12">
                 <div>
                     <span class="text-brand-red font-bold tracking-wider uppercase" data-key="prod_sub">Our Catalog</span>
-                    <h2 class="text-4xl font-black text-gray-900 mt-2" data-key="prod_title">Premium Ingredients</h2>
+                    <h2 class="text-4xl font-black text-gray-900 mt-2" data-key="prod_title">Curated Categories</h2>
                 </div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -310,7 +196,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
                         <h3 class="text-2xl font-bold" data-key="card_1_title">Hot Pot Series</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_1_desc">Authentic Soup Bases & Dips</p>
+                        <p class="text-gray-300 mt-2" data-key="card_1_desc">Soup Bases & Dips (Halal)</p>
                     </div>
                 </div>
                 <div class="relative h-96 group overflow-hidden rounded-lg cursor-pointer">
@@ -318,8 +204,8 @@
                     <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-bbq.jpg</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold" data-key="card_2_title">BBQ Series</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_2_desc">Marinated Meat & Skewers</p>
+                        <h3 class="text-2xl font-bold" data-key="card_2_title">BBQ & Grill</h3>
+                        <p class="text-gray-300 mt-2" data-key="card_2_desc">Marinated Meat & Spices</p>
                     </div>
                 </div>
                 <div class="relative h-96 group overflow-hidden rounded-lg cursor-pointer">
@@ -327,8 +213,8 @@
                     <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-fresh.jpg</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold" data-key="card_3_title">Fresh Ingredients</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_3_desc">Vegetables & Seafood</p>
+                        <h3 class="text-2xl font-bold" data-key="card_3_title">Trending Snacks</h3>
+                        <p class="text-gray-300 mt-2" data-key="card_3_desc">Konjac & Casual Food</p>
                     </div>
                 </div>
             </div>
@@ -347,7 +233,6 @@
                     <div class="absolute -top-4 -left-4 w-24 h-24 bg-red-100 rounded-full -z-10"></div>
                     <img src="about-company.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="rounded-xl shadow-2xl w-full object-cover h-[500px]">
                     <div class="rounded-xl shadow-2xl w-full h-[500px] img-placeholder-bg" style="display:none;">Put: about-company.jpg</div>
-                    
                     <div class="absolute bottom-8 right-8 bg-white p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-red-700">
                         <p class="text-sm text-gray-500 uppercase tracking-widest font-bold mb-1" data-key="about_badge_label">Recognized By</p>
                         <p class="text-lg font-black text-gray-900" data-key="about_badge_val">Forbes Gazelle & Unicorn Enterprise</p>
@@ -389,15 +274,15 @@
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_2">Warehouses</span>
                 </div>
                 <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1">300k m²</span>
+                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_3_val">300k m²</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_3">Storage Area</span>
                 </div>
                 <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1">400k+</span>
+                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_4_val">400k+</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_4">Daily Orders</span>
                 </div>
                 <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1">14,000+</span>
+                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_5_val">14,000+</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_5">Logistics Vehicles</span>
                 </div>
             </div>
@@ -414,74 +299,63 @@
                         <p class="text-gray-400 mb-8" data-key="contact_desc">Ready to scale your business? Our export team is here to assist you with product selection and logistics.</p>
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mt-1 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                <div><h4 class="font-bold">Email</h4><p class="text-gray-400">overseas@guoquan.cn</p></div>
+                                <i class="fas fa-envelope text-red-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold" data-key="contact_lbl_email">Email</h4>
+                                    <p class="text-gray-400">overseas@guoquan.cn</p>
+                                </div>
                             </div>
                             <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mt-1 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div><h4 class="font-bold">Headquarters</h4><p class="text-gray-400">Shanghai, China</p></div>
-                            </div>
-                            
-                            <div class="pt-6 border-t border-gray-800">
-                                <h4 class="font-bold mb-4">Follow Us</h4>
-                                <div class="flex space-x-4">
-                                    <a href="https://facebook.com/guoquanlife" target="_blank" class="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-red-600 transition">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                                    </a>
-                                    <a href="https://instagram.com/guoquanlife" target="_blank" class="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-red-600 transition">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.637.247-1.363.416-2.428.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.451 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
-                                    </a>
-                                    <a href="https://x.com/guoquanlife" target="_blank" class="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-red-600 transition">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                                    </a>
+                                <i class="fas fa-map-marker-alt text-red-500 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold" data-key="contact_lbl_hq">Headquarters</h4>
+                                    <p class="text-gray-400" data-key="contact_val_hq">Shanghai / Zhengzhou, China</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="p-12">
-                    <form action="https://formsubmit.co/overseas@guoquan.cn" method="POST">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <input type="hidden" name="_subject" value="【新询盘】GUOQUAN Website Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
 
-    <input type="hidden" name="_subject" value="【新询盘】来自 GUOQUAN 官网的新客户！">
-
-    <input type="hidden" name="_captcha" value="false">
-
-    <input type="hidden" name="_next" value="https://www.guoquanlife.com/">
-
-    <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-        </div>
-    </div>
-    
-    <div class="mb-6">
-        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"></textarea>
-    </div>
-
-    <button type="submit" class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold text-lg shadow-lg hover:shadow-xl">
-        Send Message
-    </button>
-</form>
                         <h3 class="text-2xl font-bold mb-6 text-gray-900" data-key="form_header">Send an Inquiry</h3>
+                        
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <div><label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_name">Name</label><input type="text" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></div>
-                            <div><label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_company">Company</label><input type="text" name="company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_name">Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_company">Company</label>
+                                <input type="text" name="company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                            </div>
                         </div>
-                        <div class="mb-6"><label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_email">Email Address</label><input type="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></div>
-                        <div class="mb-6"><label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_msg">Message / Requirements</label><textarea name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></textarea></div>
-                        <button type="submit" class="w-full bg-red-700 text-white font-bold py-4 rounded hover:bg-red-800 transition transform hover:-translate-y-1" data-key="form_btn">Send Inquiry</button>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_email">Email Address</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_msg">Message / Requirements</label>
+                            <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-red-700 text-white font-bold py-4 rounded hover:bg-red-800 transition transform hover:-translate-y-1" data-key="form_btn">
+                            Send Inquiry
+                        </button>
                     </form>
+
                     <div id="successMessage" class="hidden h-full flex flex-col justify-center items-center text-center py-12">
-                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6"><svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-key="success_title">Submission Successful!</h3>
-                        <p class="text-gray-600" data-key="success_desc">Thank you for your inquiry. Our sales team will contact you shortly.</p>
-                        <button onclick="resetForm()" class="mt-8 text-red-700 font-bold hover:underline">Send another message</button>
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-check text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-key="success_title">Sent Successfully!</h3>
+                        <p class="text-gray-600 mb-6" data-key="success_desc">Our team will contact you shortly.</p>
+                        <button onclick="resetForm()" class="text-red-700 font-bold hover:underline">Send another</button>
                     </div>
                 </div>
             </div>
@@ -492,77 +366,58 @@
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
             <div>
                 <h3 class="text-white text-2xl font-black mb-6">GUOQUAN LIFE</h3>
-                <p class="text-sm leading-relaxed mb-4" data-key="footer_about">Publicly Listed Company (2517.HK).<br>Your trusted partner in global frozen food supply chain.</p>
+                <p class="text-sm leading-relaxed mb-4" data-key="footer_about">Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_1">Products</h4>
+                <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_1">Catalog</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white" data-key="card_1_title">Hot Pot Series</a></li>
                     <li><a href="#" class="hover:text-white" data-key="card_2_title">BBQ Series</a></li>
-                    <li><a href="#" class="hover:text-white" data-key="card_3_title">Fresh Ingredients</a></li>
+                    <li><a href="#" class="hover:text-white" data-key="card_3_title">Trending Snacks</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_2">Company</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a href="#about" class="hover:text-white" data-key="nav_about">About Us</a></li>
-                    <li><a href="#factory" class="hover:text-white" data-key="factory_title">Supply Chain Powerhouse</a></li>
+                    <li><a href="#factory" class="hover:text-white" data-key="factory_title">Supply Chain</a></li>
                 </ul>
             </div>
-            <div id="contact">
+            <div>
                 <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_3">Contact</h4>
                 <a href="mailto:overseas@guoquan.cn" class="block w-full text-center brand-red text-white py-3 rounded font-bold hover:bg-red-800 transition" data-key="footer_btn">Email Sales Team</a>
-                <div class="flex justify-center space-x-4 mt-6">
-                    <a href="https://facebook.com/guoquanlife" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                    <a href="https://instagram.com/guoquanlife" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.637.247-1.363.416-2.428.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.451 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
-                    </a>
-                    <a href="https://x.com/guoquanlife" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">&copy; 2024 GUOQUAN LIFE. All rights reserved.</div>
     </footer>
 
     <script>
+        // 核心翻译字典
         const dict = {
             en: {
-                nav_solution: "Solutions", nav_product: "Products", nav_factory: "Factory", nav_about: "About Us", btn_quote: "Get Quote",
-                hero_sub: "Global Supply Chain · Publicly Listed Company",
-                hero_title: "Global Fresh & Frozen <br> Ingredients Supply Chain",
-                hero_desc: "From Fresh Vegetables to Frozen Ingredients. <br>One-Stop Procurement for Global Restaurants & Distributors.",
-                btn_explore: "Explore Catalog", btn_calc_hero: "Simulate Cash Flow", btn_catalog: "Request Full Catalog",
+                nav_solution: "Solutions", nav_product: "Catalog", nav_about: "About Us", btn_quote: "Start Sourcing",
+                hero_sub: "China’s Premier Supply Chain Integrator",
+                hero_title: "One Partner. Premium & <br> <span class='text-yellow-400'>Halal</span> Supply Chain.",
+                hero_desc: "We integrate, verify, and consolidate. <br>Stop dealing with 10 factories. Deal with ONE trusted partner.",
+                btn_explore: "View Catalog", btn_catalog: "Request Full Catalog",
+                stat_1: "Publicly Listed", stat_2: "Partner Factories", stat_3: "Certified Supply", stat_4: "China Unicorn",
                 
-                stat_1: "Publicly Listed", stat_2: "Retail Stores", stat_3: "Active Members", stat_4: "China Unicorn",
+                pain_title: "Tired of Fragmented Sourcing?", pain_sub: "Dealing with multiple factories and inconsistent quality eats your profit.",
+                pain_loss_title: "The Old Way", pain_loss_1_head: "Multiple Contacts", pain_loss_1_desc: "Coordinating with 10+ factories is exhausting.", pain_loss_2_head: "Quality Risk", pain_loss_2_desc: "Inconsistent standards and Halal compliance issues.",
+                pain_gain_title: "GUOQUAN Integrator", pain_gain_1_head: "One-Stop Partner", pain_gain_1_desc: "We manage sourcing, QA, and consolidation for you.", pain_gain_2_head: "Verified Halal", pain_gain_2_desc: "Strict on-site verification for Muslim markets.",
                 
-                pain_title: "Are You Paying for Hidden Supply Chain Costs?", pain_sub: "Don't let inefficiency eat up your profit margins.",
-                pain_loss_title: "Traditional Sourcing", pain_loss_1_head: "High Capital Pressure", pain_loss_1_desc: "Forced to buy Full Container Loads (FCL). Cash flow is locked up for months.", pain_loss_2_head: "Inventory Risk", pain_loss_2_desc: "Overstocking single SKUs leads to waste and high warehousing costs.",
-                pain_gain_title: "GUOQUAN Model", pain_gain_1_head: "Minimum Order Quantity", pain_gain_1_desc: "Mix Fresh & Frozen in one container. Start business with minimal capital.", pain_gain_2_head: "5x Turnover Rate", pain_gain_2_desc: "Order only what you need. Turn your inventory into cash faster.",
-                
-                sol_tag: "Our Process", sol_title: "One-Stop Solutions", sol_desc: "We don't just supply ingredients; we provide a complete supply chain ecosystem for distributors and restaurants.",
-                sol_1_title: "Full Category Selection", sol_1_desc: "Vegetables, Meatballs, Soup Bases, Cookware (1000+ SKU).",
-                sol_2_title: "Smart Consolidation", sol_2_desc: "Customized container combination based on your specific needs.",
-                sol_3_title: "Direct Cold Chain", sol_3_desc: "Full temperature control. One-stop customs clearance & delivery.",
-                sol_4_title: "Product Localization", sol_4_desc: "Optimizing product formulas and specifications to perfectly match local market preferences.",
+                sol_tag: "Our Workflow", sol_title: "Integrated Supply Chain", sol_desc: "From finding the best factories to delivering market-ready products.",
+                sol_1_title: "Premium Sourcing", sol_1_desc: "Access our network of 350+ audited factories (Hotpot, BBQ, Snacks).",
+                sol_2_title: "Halal Verification", sol_2_desc: "Strict QA and Halal certification checks for Central Asian markets.",
+                sol_3_title: "Smart Consolidation", sol_3_desc: "Mix multiple SKUs (Ingredients + Packaging) into one container.",
+                sol_4_title: "Export Logistics", sol_4_desc: "We handle customs and cold-chain logistics. You just receive goods.",
 
-                prod_sub: "Our Catalog", prod_title: "Premium Ingredients",
-                card_1_title: "Hot Pot Series", card_1_desc: "Authentic Soup Bases & Dips",
-                card_2_title: "BBQ Series", card_2_desc: "Marinated Meat & Skewers",
-                card_3_title: "Fresh Ingredients", card_3_desc: "Vegetables & Seafood",
+                prod_sub: "Our Catalog", prod_title: "Curated Categories",
+                card_1_title: "Hot Pot Series", card_1_desc: "Soup Bases & Dips (Halal)",
+                card_2_title: "BBQ & Grill", card_2_desc: "Marinated Meat & Spices",
+                card_3_title: "Trending Snacks", card_3_desc: "Konjac & Casual Food",
                 
-                calc_tag: "Capital Efficiency Simulator", calc_title: "Don't Let Inventory <br> Trap Your Cash", calc_desc: "Traditional sourcing requires high MOQs, locking up your capital in warehouses. GUOQUAN's \"Mixed Container\" model improves your cash flow efficiency by 5x.",
-                calc_trad_title: "The \"MOQ Trap\" (Traditional)", calc_trad_desc: "Factory MOQ = 5 Containers. <br>Capital Locked: <strong>180 Days</strong>.",
-                calc_gq_title: "The Agile Way (GUOQUAN)", calc_gq_desc: "Mixed Container = 1 Container. <br>Capital Locked: <strong>30 Days</strong>.",
-                calc_btn: "Get Custom Solution", 
-                calc_instruction_title: "Comparison Tool",
-                calc_instruction_desc: "See how much capital you can free up by switching from traditional FCL (6-month stock) to GUOQUAN's mixed container model (1-month stock).",
-                calc_input_label: "Drag Slider: Annual Procurement",
-                calc_result_label: "Potential Capital Release", calc_note: "* Estimated based on reducing inventory hold from 180 days to 30 days.",
-
+                // About Us (还原)
                 about_tag: "About GUOQUAN LIFE",
                 about_title: "China's Leading Digital Community Meal Solution Provider",
                 about_desc_1: "Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a \"Unicorn\" enterprise in the food sector.",
@@ -570,48 +425,60 @@
                 about_badge_label: "Recognized By", about_badge_val: "Forbes Gazelle & Unicorn Enterprise",
                 about_stat_1_val: "2017", about_stat_1_lbl: "Founded", about_stat_2_val: "30+", about_stat_2_lbl: "Listed Partners", about_stat_3_val: "ISO", about_stat_3_lbl: "Certified",
 
+                // Factory (还原 + 翻译修复)
                 factory_title: "Supply Chain Powerhouse",
                 factory_desc: "Massive scale, digital management, and strict quality control. We guarantee stability for your business.",
-                fac_1: "Partner Factories", fac_1_val: "350+", fac_2: "Warehouses", fac_2_val: "17", fac_3: "Storage Area", fac_4: "Daily Orders", fac_5: "Logistics Vehicles",
+                fac_1: "Partner Factories", fac_1_val: "350+", 
+                fac_2: "Warehouses", fac_2_val: "17", 
+                fac_3: "Storage Area", fac_3_val: "300k m²",
+                fac_4: "Daily Orders", fac_4_val: "400k+",
+                fac_5: "Logistics Vehicles", fac_5_val: "14,000+",
 
+                // Contact Form (新增翻译)
                 contact_tag: "Contact Us", contact_title: "Partner with GUOQUAN LIFE", contact_desc: "Ready to scale your business? Our export team is here to assist you with product selection and logistics.",
-                form_header: "Send an Inquiry", form_name: "Name", form_company: "Company", form_email: "Email Address", form_msg: "Message / Requirements", form_btn: "Send Inquiry",
-                success_title: "Submission Successful!", success_desc: "Thank you for your inquiry. Our sales team will contact you shortly.",
-                footer_about: "Publicly Listed Company.<br>Your trusted partner in global frozen food supply chain.",
-                footer_col_1: "Products", footer_col_2: "Company", footer_col_3: "Contact", footer_btn: "Email Sales Team"
+                contact_lbl_email: "Email",
+                contact_lbl_hq: "Headquarters",
+                contact_val_hq: "Shanghai / Zhengzhou, China",
+
+                form_header: "Send an Inquiry", 
+                form_name: "Name", 
+                form_company: "Company", 
+                form_email: "Email Address", 
+                form_msg: "Message / Requirements", 
+                form_btn: "Send Inquiry",
+                success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly.",
+                footer_about: "Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.",
+                
+                // Footer Contact & Button (新增翻译)
+                footer_col_1: "Catalog", 
+                footer_col_2: "Company", 
+                footer_col_3: "Contact", 
+                footer_btn: "Email Sales Team"
             },
+            
             cn: {
-                nav_solution: "解决方案", nav_product: "产品中心", nav_factory: "工厂实力", nav_about: "关于我们", btn_quote: "获取报价",
-                hero_sub: "全球食品供应链 · 上市企业",
-                hero_title: "全球生鲜蔬菜与<br>冷冻食材一站式供应链",
-                hero_desc: "从新鲜蔬菜到精选冷冻食材。<br>源头直供全球餐厅与经销商，一次购齐。",
-                btn_explore: "浏览产品目录", btn_calc_hero: "模拟现金流", btn_catalog: "索取完整产品目录",
-                stat_1: "上市企业", stat_2: "家零售门店", stat_3: "活跃会员", stat_4: "中国独角兽",
+                nav_solution: "解决方案", nav_product: "产品目录", nav_about: "关于我们", btn_quote: "开始采购",
+                hero_sub: "中国领先的供应链整合商",
+                hero_title: "一站式 · 优质 & <br> <span class='text-yellow-400'>清真</span> 供应链",
+                hero_desc: "我们负责筛选、核验、整合。<br>别再对接10家工厂了，只需对接我们一个可靠伙伴。",
+                btn_explore: "浏览目录", btn_catalog: "索取完整目录",
+                stat_1: "上市企业", stat_2: "合作工厂", stat_3: "清真认证", stat_4: "中国独角兽",
                 
-                pain_title: "您是否正在为“隐形损耗”买单？", pain_sub: "别让低效的供应链吞噬您的净利润。",
-                pain_loss_title: "传统采购模式", pain_loss_1_head: "巨大的资金压力", pain_loss_1_desc: "被迫整柜(FCL)采购。数十万资金被长期锁定。", pain_loss_2_head: "库存积压风险", pain_loss_2_desc: "单一品类囤货过多导致浪费和高昂仓储费。",
-                pain_gain_title: "锅圈生活模式", pain_gain_1_head: "极低起订门槛", pain_gain_1_desc: "生鲜冻品拼柜。用极小资金启动业务。", pain_gain_2_head: "5倍周转率", pain_gain_2_desc: "按需采购。让库存更快变现。",
+                pain_title: "厌倦了碎片化采购？", pain_sub: "对接多家工厂和不稳定的质量正在吞噬您的利润。",
+                pain_loss_title: "传统模式", pain_loss_1_head: "多头对接", pain_loss_1_desc: "协调10多家工厂非常累人。", pain_loss_2_head: "质量风险", pain_loss_2_desc: "标准不统一，缺乏清真合规性。",
+                pain_gain_title: "锅圈整合模式", pain_gain_1_head: "一站式伙伴", pain_gain_1_desc: "我们为您管理采购、质检和集货。", pain_gain_2_head: "清真核验", pain_gain_2_desc: "针对穆斯林市场的严格现场核验。",
+
+                sol_tag: "我们的流程", sol_title: "整合供应链体系", sol_desc: "从寻找最好的工厂到交付适销对路的产品。",
+                sol_1_title: "优质寻源", sol_1_desc: "链接350+家经过审计的工厂（火锅、烧烤、零食）。",
+                sol_2_title: "清真核验", sol_2_desc: "针对中亚市场的严格质检和清真证书检查。",
+                sol_3_title: "智能拼柜", sol_3_desc: "将多种SKU（食材+包材）混合装入一个集装箱。",
+                sol_4_title: "出口物流", sol_4_desc: "我们处理报关和冷链物流。您只管收货。",
+
+                prod_sub: "产品目录", prod_title: "精选品类",
+                card_1_title: "火锅系列", card_1_desc: "底料与蘸料（清真）",
+                card_2_title: "烧烤系列", card_2_desc: "腌制肉与调料",
+                card_3_title: "潮流零食", card_3_desc: "魔芋与休闲食品",
                 
-                sol_tag: "服务流程", sol_title: "一站式解决方案", sol_desc: "不止于食材供应，我们为分销商与餐饮企业提供从源头直采到产品落地的全链路支持。",
-                sol_1_title: "全品类选择", sol_1_desc: "蔬菜、丸滑、底料、锅具 (1000+ SKU)。",
-                sol_2_title: "智能拼柜", sol_2_desc: "根据您的菜单需求，定制化组合集装箱。",
-                sol_3_title: "冷链直达", sol_3_desc: "全程温控，报关清关一站式服务。",
-                sol_4_title: "产品本地化改良", sol_4_desc: "针对当地市场偏好，提供产品配方与口味的定制化调整。",
-
-                prod_sub: "产品目录", prod_title: "精选优质食材",
-                card_1_title: "火锅系列", card_1_desc: "正宗底料与蘸酱",
-                card_2_title: "烧烤系列", card_2_desc: "腌制肉串与撒料",
-                card_3_title: "生鲜食材", card_3_desc: "新鲜蔬菜与海鲜",
-
-                calc_tag: "资金效率模拟器", calc_title: "别让库存 <br> 锁死您的现金流", calc_desc: "传统源头采购通常要求极高的起订量(MOQ)，导致资金长期积压在仓库。锅圈的“混合拼柜”模式能将您的资金周转效率提升5倍。",
-                calc_trad_title: "传统“MOQ陷阱”", calc_trad_desc: "工厂起订量=5个柜子。<br>资金占用：<strong>180天</strong>。",
-                calc_gq_title: "锅圈“敏捷模式”", calc_gq_desc: "混合拼柜=1个柜子。<br>资金占用：<strong>30天</strong>。",
-                calc_btn: "获取定制供应链方案", 
-                calc_instruction_title: "资金占用对比工具",
-                calc_instruction_desc: "对比“传统整柜采购”与“锅圈混合拼柜”模式下，为了维持同样生意规模所需的资金占用差异。",
-                calc_input_label: "拖动滑块：设定年度采购额",
-                calc_result_label: "潜在资金释放", calc_note: "* 计算逻辑：将库存持有期从180天降低至30天。",
-
                 about_tag: "关于锅圈食汇",
                 about_title: "中国领先的社区餐饮数字零售服务商",
                 about_desc_1: "锅圈食品（上海）股份有限公司成立于2017年，是上市企业，也是食品行业公认的“独角兽”企业。",
@@ -619,47 +486,52 @@
                 about_badge_label: "荣誉认证", about_badge_val: "福布斯中国高增长瞪羚企业 / 独角兽企业",
                 about_stat_1_val: "2017", about_stat_1_lbl: "成立时间", about_stat_2_val: "30+", about_stat_2_lbl: "上市合作伙伴", about_stat_3_val: "ISO", about_stat_3_lbl: "国际认证",
 
-                factory_title: "强大的供应链底盘",
+                factory_title: "强大的供应链底盘", 
                 factory_desc: "巨大的规模、数字化的管理和严苛的品控。我们为您提供确定性的供应保障。",
-                fac_1: "合作工厂", fac_1_val: "350+", fac_2: "仓储中心", fac_2_val: "17", fac_3: "仓储面积", fac_4: "日处理订单", fac_5: "冷链运输车",
-
+                fac_1: "合作工厂", fac_1_val: "350+", 
+                fac_2: "仓储中心", fac_2_val: "17", 
+                fac_3: "仓储面积", fac_3_val: "30万 平米",
+                fac_4: "日处理订单", fac_4_val: "40万+",
+                fac_5: "冷链运输车", fac_5_val: "14,000+",
+                
                 contact_tag: "联系我们", contact_title: "与锅圈生活合作", contact_desc: "准备好拓展您的业务了吗？我们的出口团队将协助您进行产品选择和物流规划。",
+                contact_lbl_email: "电子邮箱",
+                contact_lbl_hq: "总部地址",
+                contact_val_hq: "中国 上海 / 郑州",
+
                 form_header: "发送询盘", form_name: "姓名", form_company: "公司名称", form_email: "电子邮箱", form_msg: "留言 / 需求", form_btn: "提交询盘",
-                success_title: "提交成功！", success_desc: "感谢您的咨询。我们的销售团队会尽快与您联系。",
-                footer_about: "上市企业。<br>全球冻品供应链合作伙伴。",
-                footer_col_1: "产品中心", footer_col_2: "关于公司", footer_col_3: "联系我们", footer_btn: "联系销售团队"
+                success_title: "提交成功！", success_desc: "我们团队会尽快联系您。",
+                footer_about: "上市企业。<br>您值得信赖的全球及清真供应链伙伴。",
+                
+                // Footer translations
+                footer_col_1: "产品目录", 
+                footer_col_2: "关于公司", 
+                footer_col_3: "联系我们", 
+                footer_btn: "联系销售团队"
             },
+
             ru: {
-                nav_solution: "Решения", nav_product: "Продукция", nav_factory: "Производство", nav_about: "О нас", btn_quote: "Запросить цену",
-                hero_sub: "Глобальная цепочка поставок · Публичная компания",
-                hero_title: "Глобальные поставки <br> Свежих и Замороженных ингредиентов",
-                hero_desc: "От свежих овощей до замороженных ингредиентов.<br>Единое окно закупок для ресторанов и дистрибьюторов.",
-                btn_explore: "Каталог", btn_calc_hero: "Симуляция ROI", btn_catalog: "Запросить каталог",
-                stat_1: "Публичная", stat_2: "Магазинов", stat_3: "Активных клиентов", stat_4: "Единорог Китая",
+                nav_solution: "Решения", nav_product: "Каталог", nav_about: "О нас", btn_quote: "Начать закупки",
+                hero_sub: "Ведущий интегратор поставок из Китая",
+                hero_title: "Единый партнер. Премиум и <br> <span class='text-yellow-400'>Халяль</span> поставки.",
+                hero_desc: "Мы интегрируем, проверяем и консолидируем. <br>Не работайте с 10 заводами. Работайте с ОДНИМ надежным партнером.",
+                btn_explore: "Каталог", btn_catalog: "Запросить каталог",
+                stat_1: "Публичная", stat_2: "Заводов-партнеров", stat_3: "Халяль сертификация", stat_4: "Единорог Китая",
                 
-                pain_title: "Вы платите за скрытые расходы?", pain_sub: "Не позволяйте неэффективности съедать вашу прибыль.",
-                pain_loss_title: "Традиционные закупки", pain_loss_1_head: "Заморозка капитала", pain_loss_1_desc: "Вынужденная закупка целых контейнеров. Деньги блокируются на месяцы.", pain_loss_2_head: "Риск затоваривания", pain_loss_2_desc: "Избыток одного товара ведет к порче и расходам на склад.",
-                pain_gain_title: "Модель GUOQUAN", pain_gain_1_head: "Минимальный заказ", pain_gain_1_desc: "Смешанный контейнер. Начните с минимальным капиталом.", pain_gain_2_head: "5-кратный оборот", pain_gain_2_desc: "Заказывайте только то, что нужно. Быстрый возврат денег.",
+                pain_title: "Устали от разрозненных закупок?", pain_sub: "Работа с множеством заводов и нестабильное качество съедают вашу прибыль.",
+                pain_loss_title: "Старый метод", pain_loss_1_head: "Много контактов", pain_loss_1_desc: "Координация с 10+ заводами утомляет.", pain_loss_2_head: "Риск качества", pain_loss_2_desc: "Разные стандарты и проблемы с Халяль.",
+                pain_gain_title: "Интегратор GUOQUAN", pain_gain_1_head: "Единое окно", pain_gain_1_desc: "Мы управляем закупками, контролем и консолидацией.", pain_gain_2_head: "Проверенный Халяль", pain_gain_2_desc: "Строгая проверка для мусульманских рынков.",
                 
-                sol_tag: "Процесс", sol_title: "Комплексные решения", sol_desc: "Мы поставляем не просто ингредиенты, а полную экосистему для дистрибьюторов и ресторанов.",
-                sol_1_title: "Полный ассортимент", sol_1_desc: "Овощи, фрикадельки, основы, посуда (1000+ SKU).",
-                sol_2_title: "Умная консолидация", sol_2_desc: "Индивидуальный подбор контейнера под ваше меню.",
-                sol_3_title: "Холодовая цепь", sol_3_desc: "Полный контроль температуры. Единая растаможка.",
-                sol_4_title: "Адаптация продукта", sol_4_desc: "Оптимизация рецептуры и характеристик продуктов под предпочтения местного рынка.",
+                sol_tag: "Наш процесс", sol_title: "Интегрированная цепочка", sol_desc: "От поиска лучших заводов до доставки готовой продукции.",
+                sol_1_title: "Премиум закупки", sol_1_desc: "Доступ к 350+ проверенным заводам (Хот-пот, Барбекю, Снеки).",
+                sol_2_title: "Халяль контроль", sol_2_desc: "Строгая проверка сертификатов Халяль для рынков Ц. Азии.",
+                sol_3_title: "Умная консолидация", sol_3_desc: "Смешивание разных товаров (Ингредиенты + Упаковка) в один контейнер.",
+                sol_4_title: "Экспорт и Логистика", sol_4_desc: "Мы берем на себя таможню и холодную цепь. Вы просто получаете груз.",
 
-                prod_sub: "Каталог", prod_title: "Премиум ингредиенты",
-                card_1_title: "Серия Хот-пот", card_1_desc: "Основы и соусы",
-                card_2_title: "Серия Барбекю", card_2_desc: "Маринованное мясо",
-                card_3_title: "Свежие продукты", card_3_desc: "Овощи и морепродукты",
-
-                calc_tag: "Эффективность бизнеса", calc_title: "Не позволяйте запасам <br> заморозить ваш капитал", calc_desc: "Традиционные закупки требуют больших объемов, блокируя деньги на складе. Модель GUOQUAN повышает эффективность оборота капитала в 5 раз.",
-                calc_trad_title: "Ловушка MOQ (Традиционно)", calc_trad_desc: "Заводской минимум = 5 контейнеров. <br>Капитал заморожен: <strong>180 дней</strong>.",
-                calc_gq_title: "Гибкий метод (GUOQUAN)", calc_gq_desc: "Сборный груз = 1 контейнер. <br>Капитал заморожен: <strong>30 дней</strong>.",
-                calc_btn: "Получить решение", 
-                calc_instruction_title: "Калькулятор капитала",
-                calc_instruction_desc: "Сравните, сколько капитала можно высвободить, перейдя с традиционной модели (6 месяцев запаса) на модель GUOQUAN (1 месяц).",
-                calc_input_label: "Перетащите: Годовой объем закупок",
-                calc_result_label: "Потенциальное высвобождение капитала", calc_note: "* Расчет: сокращение запасов с 180 до 30 дней.",
+                prod_sub: "Каталог", prod_title: "Категории",
+                card_1_title: "Серия Хот-пот", card_1_desc: "Основы и соусы (Халяль)",
+                card_2_title: "Барбекю и Гриль", card_2_desc: "Маринованное мясо и специи",
+                card_3_title: "Трендовые снеки", card_3_desc: "Конжак и закуски",
 
                 about_tag: "О GUOQUAN LIFE",
                 about_title: "Ведущий поставщик решений для домашнего питания в Китае",
@@ -668,15 +540,28 @@
                 about_badge_label: "Признание", about_badge_val: "Forbes Gazelle & Компания-единорог",
                 about_stat_1_val: "2017", about_stat_1_lbl: "Основана", about_stat_2_val: "30+", about_stat_2_lbl: "Партнеров", about_stat_3_val: "ISO", about_stat_3_lbl: "Сертификация",
 
-                factory_title: "Мощность цепочки поставок",
+                factory_title: "Мощность поставок", 
                 factory_desc: "Масштаб, цифровое управление и строгий контроль качества. Мы гарантируем стабильность вашего бизнеса.",
-                fac_1: "Партнерских заводов", fac_1_val: "350+", fac_2: "Складов", fac_2_val: "17", fac_3: "Площадь хранения", fac_4: "Заказов в день", fac_5: "Логистических машин",
-
+                fac_1: "Партнерских заводов", fac_1_val: "350+", 
+                fac_2: "Складов", fac_2_val: "17", 
+                fac_3: "Площадь хранения", fac_3_val: "300k m²",
+                fac_4: "Заказов в день", fac_4_val: "400k+",
+                fac_5: "Логистических машин", fac_5_val: "14,000+",
+                
                 contact_tag: "Контакты", contact_title: "Сотрудничество", contact_desc: "Готовы масштабировать бизнес? Наша команда поможет вам с выбором продукции и логистикой.",
+                contact_lbl_email: "Email",
+                contact_lbl_hq: "Штаб-квартира",
+                contact_val_hq: "Шанхай / Чжэнчжоу, Китай",
+
                 form_header: "Отправить запрос", form_name: "Имя", form_company: "Компания", form_email: "Email", form_msg: "Сообщение", form_btn: "Отправить",
-                success_title: "Успешно отправлено!", success_desc: "Спасибо за запрос. Мы свяжемся с вами в ближайшее время.",
-                footer_about: "Публичная компания.<br>Глобальная цепочка поставок.",
-                footer_col_1: "Продукция", footer_col_2: "Компания", footer_col_3: "Контакты", footer_btn: "Написать нам"
+                success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время.",
+                footer_about: "Публичная компания.<br>Ваш надежный партнер в глобальных и Халяль поставках.",
+                
+                // Footer translations
+                footer_col_1: "Продукция", 
+                footer_col_2: "Компания", 
+                footer_col_3: "Контакты", 
+                footer_btn: "Написать нам"
             }
         };
 
@@ -726,53 +611,6 @@
             btn.innerText = "Send Inquiry";
             btn.disabled = false;
         }
-
-        function updateCalculator() {
-            const slider = document.getElementById('roiSlider');
-            const display = document.getElementById('displayAmount');
-            const savings = document.getElementById('savingsAmount');
-            const tradText = document.getElementById('tradCapText');
-            const gqText = document.getElementById('gqCapText');
-            const tradBar = document.getElementById('tradBar');
-            const gqBar = document.getElementById('gqBar');
-            
-            if(!slider) return;
-
-            const val = parseInt(slider.value);
-            const maxVal = parseInt(slider.max);
-            
-            // 传统：6个月库存 (180天)
-            const tradLocked = Math.floor(val / 2);
-            // 锅圈：1个月库存 (30天)
-            const gqLocked = Math.floor(val / 12);
-            const freedCash = tradLocked - gqLocked;
-
-            display.innerText = val.toLocaleString();
-            savings.innerText = freedCash.toLocaleString();
-            
-            function formatShort(num) {
-                if(num >= 1000000) return '$' + (num/1000000).toFixed(1) + 'M';
-                return '$' + (num/1000).toFixed(0) + 'k';
-            }
-            tradText.innerText = formatShort(tradLocked) + ' Locked';
-            gqText.innerText = formatShort(gqLocked) + ' Active';
-
-            // 动态柱状图高度
-            const baseScale = maxVal / 2; 
-            let tradHeight = (tradLocked / baseScale) * 100;
-            let gqHeight = (gqLocked / baseScale) * 100;
-            
-            if(tradHeight < 5) tradHeight = 5;
-            if(gqHeight < 5) gqHeight = 5;
-            if(tradHeight > 100) tradHeight = 100;
-
-            tradBar.style.height = tradHeight + "%";
-            gqBar.style.height = gqHeight + "%";
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCalculator();
-        });
     </script>
 </body>
 </html>
