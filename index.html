@@ -16,15 +16,23 @@
             background-color: #1f2937;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            /* 桌面端固定，手机端滚动 (修复iOS显示问题) */
+            background-attachment: scroll;
+        }
+        @media (min-width: 768px) {
+            .hero-bg { background-attachment: fixed; }
         }
 
-        /* 2. 工厂背景图 (透明度 0.6) */
+        /* 2. 工厂背景图 */
         .factory-bg {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('factory-bg.jpg');
             background-color: #111827;
             background-size: cover;
-            background-attachment: fixed;
+            background-position: center;
+            background-attachment: scroll;
+        }
+        @media (min-width: 768px) {
+            .factory-bg { background-attachment: fixed; }
         }
 
         .brand-red { background-color: #B91C1C; }
@@ -35,17 +43,35 @@
         /* 图片占位符 */
         img[src=""] { display: none; }
         .img-placeholder-bg { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold; text-transform: uppercase; border: 2px dashed #d1d5db; }
+        
+        /* 手机端底部固定按钮样式 */
+        .mobile-sticky-btn {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            padding: 16px;
+            background: white;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: none; /* 默认隐藏，仅在小屏幕显示 */
+        }
+        @media (max-width: 768px) {
+            .mobile-sticky-btn { display: block; }
+            /* 为底部按钮留出空间，防止遮挡Footer */
+            body { padding-bottom: 80px; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16 md:h-20">
                 <div class="flex items-center gap-3">
                     <a href="#" class="flex items-center gap-2">
-                        <img src="logo.png" alt="GUOQUAN LIFE" style="height: 48px; width: auto;" onerror="this.style.display='none'">
-                        <span class="text-2xl font-black text-gray-900 tracking-tighter uppercase">
+                        <img src="logo.png" alt="GUOQUAN LIFE" style="height: 32px; width: auto;" class="md:h-12" onerror="this.style.display='none'">
+                        <span class="text-xl md:text-2xl font-black text-gray-900 tracking-tighter uppercase">
                             GUOQUAN LIFE
                         </span>
                     </a>
@@ -57,70 +83,78 @@
                         <a href="#products" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_product">Catalog</a>
                         <a href="#about" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_about">About Us</a>
                     </div>
-                    <div class="flex space-x-1 text-sm border-l pl-4 border-gray-300 select-none">
+                    
+                    <div class="flex space-x-1 text-xs md:text-sm border-l pl-4 border-gray-300 select-none">
                         <span onclick="changeLanguage('en')" class="lang-btn active" id="btn-en">EN</span>
                         <span class="text-gray-300">|</span>
-                        <span onclick="changeLanguage('cn')" class="lang-btn" id="btn-cn">中文</span>
+                        <span onclick="changeLanguage('cn')" class="lang-btn" id="btn-cn">CN</span>
                         <span class="text-gray-300">|</span>
                         <span onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</span>
                     </div>
+
                     <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-key="btn_quote">Start Sourcing</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
+    <div class="mobile-sticky-btn">
+        <a href="#inquiry" class="block w-full brand-red text-white text-center font-bold py-3 rounded-lg shadow-lg text-lg" data-key="btn_quote">
+            Start Sourcing
+        </a>
+    </div>
+
+    <header class="hero-bg min-h-screen flex items-center justify-center text-center text-white relative pt-16">
         <div class="max-w-5xl px-4">
-            <p class="text-lg md:text-xl uppercase tracking-widest mb-4 opacity-90 border-b border-white/30 inline-block pb-2" data-key="hero_sub">
+            <p class="text-sm md:text-xl uppercase tracking-widest mb-4 opacity-90 border-b border-white/30 inline-block pb-2" data-key="hero_sub">
                 China’s Premier Supply Chain Integrator
             </p>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight" data-key="hero_title">
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight" data-key="hero_title">
                 One Partner. Premium & <br> <span class="text-yellow-400">Halal</span> Supply Chain.
             </h1>
-            <p class="text-xl md:text-2xl mb-10 text-gray-200 font-light" data-key="hero_desc">
+            <p class="text-lg md:text-2xl mb-10 text-gray-200 font-light" data-key="hero_desc">
                 We integrate, verify, and consolidate. <br>Stop dealing with 10 factories. Deal with ONE trusted partner.
             </p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#products" class="px-10 py-5 brand-red text-white font-bold text-xl rounded shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-key="btn_explore">
+            <div class="flex justify-center gap-4 flex-wrap pb-10 md:pb-0">
+                <a href="#products" class="px-8 py-4 brand-red text-white font-bold text-lg rounded shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-key="btn_explore">
                     View Catalog
                 </a>
             </div>
         </div>
     </header>
 
-    <section class="bg-gray-900 text-white py-12 border-b-4 border-red-700">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <section class="bg-gray-900 text-white py-8 md:py-12 border-b-4 border-red-700">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">IPO</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_1">Publicly Listed</div>
+                <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">IPO</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_1">Publicly Listed</div>
             </div>
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">350+</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_2">Partner Factories</div>
+                <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">350+</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_2">Partner Factories</div>
             </div>
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">Halal</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_3">Certified Supply</div>
+                <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">Halal</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_3">Certified Supply</div>
             </div>
             <div>
-                <div class="text-4xl font-bold text-red-500 mb-2">TOP 10</div>
-                <div class="text-sm uppercase tracking-wide text-gray-400" data-key="stat_4">China Unicorn</div>
+                <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">TOP 10</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_4">China Unicorn</div>
             </div>
         </div>
     </section>
 
-    <section id="painpoints" class="py-24 bg-gray-50 border-b border-gray-200">
+    <section id="painpoints" class="py-12 md:py-24 bg-gray-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4" data-key="pain_title">Tired of Fragmented Sourcing?</h2>
-                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="pain_sub">Dealing with multiple factories and inconsistent quality eats your profit.</p>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-4" data-key="pain_title">Tired of Fragmented Sourcing?</h2>
+                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto" data-key="pain_sub">Dealing with multiple factories and inconsistent quality eats your profit.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-10 items-stretch">
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
+                <div class="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
                     <div class="flex items-center gap-4 mb-6 border-b border-gray-100 pb-4">
-                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fas fa-times text-xl"></i></div>
-                        <h3 class="text-2xl font-bold text-gray-600" data-key="pain_loss_title">The Old Way</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fas fa-times text-lg md:text-xl"></i></div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-600" data-key="pain_loss_title">The Old Way</h3>
                     </div>
                     <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Hassle Level</span><span class="text-red-500">High (90%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-red-500 h-3 rounded-full risk-bar" style="width: 90%"></div></div></div>
                     <ul class="space-y-6 flex-1">
@@ -128,11 +162,11 @@
                         <li class="flex gap-4"><i class="fas fa-exclamation-triangle text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-key="pain_loss_2_head">Quality Risk</strong><span class="text-sm text-gray-500" data-key="pain_loss_2_desc">Inconsistent standards and Halal compliance issues.</span></div></li>
                     </ul>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border-2 border-red-700 shadow-2xl relative transform md:-translate-y-4 flex flex-col">
-                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-700 text-white text-sm font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">Recommended</div>
+                <div class="bg-white p-6 md:p-8 rounded-2xl border-2 border-red-700 shadow-2xl relative md:transform md:-translate-y-4 flex flex-col">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-700 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg">Recommended</div>
                     <div class="flex items-center gap-4 mb-6 border-b border-red-100 pb-4 mt-2">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><i class="fas fa-check text-xl"></i></div>
-                        <h3 class="text-2xl font-bold text-red-900" data-key="pain_gain_title">GUOQUAN Integrator</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><i class="fas fa-check text-lg md:text-xl"></i></div>
+                        <h3 class="text-xl md:text-2xl font-bold text-red-900" data-key="pain_gain_title">GUOQUAN Integrator</h3>
                     </div>
                     <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Efficiency</span><span class="text-green-600">Excellent (95%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full risk-bar" style="width: 95%"></div></div></div>
                     <ul class="space-y-6 flex-1">
@@ -144,12 +178,12 @@
         </div>
     </section>
 
-    <section id="solutions" class="py-24 bg-white relative overflow-hidden">
+    <section id="solutions" class="py-12 md:py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-20">
+            <div class="text-center mb-12 md:mb-20">
                 <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="sol_tag">Our Workflow</span>
-                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6" data-key="sol_title">Integrated Supply Chain</h2>
-                <p class="text-xl text-gray-500 max-w-3xl mx-auto" data-key="sol_desc">From finding the best factories to delivering market-ready products.</p>
+                <h2 class="text-2xl md:text-5xl font-black text-gray-900 mb-6" data-key="sol_title">Integrated Supply Chain</h2>
+                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto" data-key="sol_desc">From finding the best factories to delivering market-ready products.</p>
             </div>
             <div class="grid md:grid-cols-4 gap-8 relative">
                 <div class="hidden md:block absolute top-12 left-[10%] w-[80%] h-0.5 bg-gray-200 -z-10"></div>
@@ -181,39 +215,39 @@
         </div>
     </section>
 
-    <section id="products" class="py-20 bg-gray-100">
+    <section id="products" class="py-12 md:py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-end mb-12">
+            <div class="flex justify-between items-end mb-8 md:mb-12">
                 <div>
                     <span class="text-brand-red font-bold tracking-wider uppercase" data-key="prod_sub">Our Catalog</span>
-                    <h2 class="text-4xl font-black text-gray-900 mt-2" data-key="prod_title">Curated Categories</h2>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2" data-key="prod_title">Curated Categories</h2>
                 </div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="relative h-96 group overflow-hidden rounded-lg cursor-pointer">
+                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
                     <img src="product-hotpot.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-hotpot.jpg</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold" data-key="card_1_title">Hot Pot Series</h3>
+                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_1_title">Hot Pot Series</h3>
                         <p class="text-gray-300 mt-2" data-key="card_1_desc">Soup Bases & Dips (Halal)</p>
                     </div>
                 </div>
-                <div class="relative h-96 group overflow-hidden rounded-lg cursor-pointer">
+                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
                     <img src="product-bbq.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-bbq.jpg</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold" data-key="card_2_title">BBQ & Grill</h3>
+                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_2_title">BBQ & Grill</h3>
                         <p class="text-gray-300 mt-2" data-key="card_2_desc">Marinated Meat & Spices</p>
                     </div>
                 </div>
-                <div class="relative h-96 group overflow-hidden rounded-lg cursor-pointer">
+                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
                     <img src="product-fresh.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-fresh.jpg</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold" data-key="card_3_title">Trending Snacks</h3>
+                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_3_title">Trending Snacks</h3>
                         <p class="text-gray-300 mt-2" data-key="card_3_desc">Konjac & Casual Food</p>
                     </div>
                 </div>
@@ -226,76 +260,76 @@
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-white">
+    <section id="about" class="py-12 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <div class="absolute -top-4 -left-4 w-24 h-24 bg-red-100 rounded-full -z-10"></div>
-                    <img src="about-company.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="rounded-xl shadow-2xl w-full object-cover h-[500px]">
-                    <div class="rounded-xl shadow-2xl w-full h-[500px] img-placeholder-bg" style="display:none;">Put: about-company.jpg</div>
-                    <div class="absolute bottom-8 right-8 bg-white p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-red-700">
-                        <p class="text-sm text-gray-500 uppercase tracking-widest font-bold mb-1" data-key="about_badge_label">Recognized By</p>
-                        <p class="text-lg font-black text-gray-900" data-key="about_badge_val">Forbes Gazelle & Unicorn Enterprise</p>
+                    <img src="about-company.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="rounded-xl shadow-2xl w-full object-cover h-64 md:h-[500px]">
+                    <div class="rounded-xl shadow-2xl w-full h-64 md:h-[500px] img-placeholder-bg" style="display:none;">Put: about-company.jpg</div>
+                    <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-white p-4 md:p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-red-700">
+                        <p class="text-xs md:text-sm text-gray-500 uppercase tracking-widest font-bold mb-1" data-key="about_badge_label">Recognized By</p>
+                        <p class="text-sm md:text-lg font-black text-gray-900" data-key="about_badge_val">Forbes Gazelle & Unicorn Enterprise</p>
                     </div>
                 </div>
                 <div>
                     <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="about_tag">About GUOQUAN LIFE</span>
-                    <h2 class="text-4xl font-black text-gray-900 mb-6 leading-tight" data-key="about_title">China's Leading Digital Community Meal Solution Provider</h2>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-key="about_desc_1">
+                    <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-6 leading-tight" data-key="about_title">China's Leading Digital Community Meal Solution Provider</h2>
+                    <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed" data-key="about_desc_1">
                         Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a "Unicorn" enterprise in the food sector.
                     </p>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-key="about_desc_2">
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed" data-key="about_desc_2">
                         With over <strong>9,660 retail stores</strong> serving millions of families, we have digitally reconstructed the traditional supply chain. Now, we are opening this proven, high-efficiency supply chain to global partners, offering premium ingredients with extreme cost-effectiveness.
                     </p>
-                    <div class="flex gap-8 border-t border-gray-200 pt-8">
-                        <div><span class="block text-3xl font-black text-red-700" data-key="about_stat_1_val">2017</span><span class="text-sm text-gray-500" data-key="about_stat_1_lbl">Founded</span></div>
-                        <div><span class="block text-3xl font-black text-red-700" data-key="about_stat_2_val">30+</span><span class="text-sm text-gray-500" data-key="about_stat_2_lbl">Listed Partners</span></div>
-                        <div><span class="block text-3xl font-black text-red-700" data-key="about_stat_3_val">ISO</span><span class="text-sm text-gray-500" data-key="about_stat_3_lbl">Certified</span></div>
+                    <div class="flex gap-4 md:gap-8 border-t border-gray-200 pt-8">
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_1_val">2017</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_1_lbl">Founded</span></div>
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_2_val">30+</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_2_lbl">Listed Partners</span></div>
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_3_val">ISO</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_3_lbl">Certified</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="factory" class="factory-bg py-32 relative text-white">
+    <section id="factory" class="factory-bg py-20 md:py-32 relative text-white">
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-black mb-6" data-key="factory_title">Supply Chain Powerhouse</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-16" data-key="factory_desc">
+            <h2 class="text-3xl md:text-5xl font-black mb-6" data-key="factory_title">Supply Chain Powerhouse</h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-16" data-key="factory_desc">
                 Massive scale, digital management, and strict quality control. We guarantee stability for your business.
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_1_val">350+</span>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
+                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_1_val">350+</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_1">Partner Factories</span>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_2_val">17</span>
+                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
+                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_2_val">17</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_2">Warehouses</span>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_3_val">300k m²</span>
+                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
+                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_3_val">300k m²</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_3">Storage Area</span>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_4_val">400k+</span>
+                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
+                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_4_val">400k+</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_4">Daily Orders</span>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-3xl font-bold text-red-500 mb-1" data-key="fac_5_val">14,000+</span>
+                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
+                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_5_val">14,000+</span>
                     <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_5">Logistics Vehicles</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="inquiry" class="py-24 bg-gray-50">
+    <section id="inquiry" class="py-12 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="bg-gray-900 text-white p-12 flex flex-col justify-between">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gray-900 text-white p-8 md:p-12 flex flex-col justify-between">
                     <div>
                         <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block" data-key="contact_tag">Contact Us</span>
-                        <h2 class="text-4xl font-black mb-6" data-key="contact_title">Partner with GUOQUAN LIFE</h2>
+                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-key="contact_title">Partner with GUOQUAN LIFE</h2>
                         <p class="text-gray-400 mb-8" data-key="contact_desc">Ready to scale your business? Our export team is here to assist you with product selection and logistics.</p>
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -316,7 +350,7 @@
                     </div>
                 </div>
                 
-                <div class="p-12">
+                <div class="p-8 md:p-12">
                     <form id="contactForm" onsubmit="submitForm(event)">
                         <input type="hidden" name="_subject" value="【新询盘】GUOQUAN Website Inquiry">
                         <input type="hidden" name="_captcha" value="false">
@@ -363,7 +397,7 @@
     </section>
 
     <footer class="bg-gray-900 text-gray-300 py-16">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 text-center md:text-left">
             <div>
                 <h3 class="text-white text-2xl font-black mb-6">GUOQUAN LIFE</h3>
                 <p class="text-sm leading-relaxed mb-4" data-key="footer_about">Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.</p>
@@ -392,7 +426,6 @@
     </footer>
 
     <script>
-        // 核心翻译字典
         const dict = {
             en: {
                 nav_solution: "Solutions", nav_product: "Catalog", nav_about: "About Us", btn_quote: "Start Sourcing",
@@ -417,7 +450,7 @@
                 card_2_title: "BBQ & Grill", card_2_desc: "Marinated Meat & Spices",
                 card_3_title: "Trending Snacks", card_3_desc: "Konjac & Casual Food",
                 
-                // About Us (还原)
+                // About Us
                 about_tag: "About GUOQUAN LIFE",
                 about_title: "China's Leading Digital Community Meal Solution Provider",
                 about_desc_1: "Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a \"Unicorn\" enterprise in the food sector.",
@@ -425,7 +458,7 @@
                 about_badge_label: "Recognized By", about_badge_val: "Forbes Gazelle & Unicorn Enterprise",
                 about_stat_1_val: "2017", about_stat_1_lbl: "Founded", about_stat_2_val: "30+", about_stat_2_lbl: "Listed Partners", about_stat_3_val: "ISO", about_stat_3_lbl: "Certified",
 
-                // Factory (还原 + 翻译修复)
+                // Factory
                 factory_title: "Supply Chain Powerhouse",
                 factory_desc: "Massive scale, digital management, and strict quality control. We guarantee stability for your business.",
                 fac_1: "Partner Factories", fac_1_val: "350+", 
@@ -434,7 +467,7 @@
                 fac_4: "Daily Orders", fac_4_val: "400k+",
                 fac_5: "Logistics Vehicles", fac_5_val: "14,000+",
 
-                // Contact Form (新增翻译)
+                // Contact Form
                 contact_tag: "Contact Us", contact_title: "Partner with GUOQUAN LIFE", contact_desc: "Ready to scale your business? Our export team is here to assist you with product selection and logistics.",
                 contact_lbl_email: "Email",
                 contact_lbl_hq: "Headquarters",
@@ -449,7 +482,7 @@
                 success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly.",
                 footer_about: "Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.",
                 
-                // Footer Contact & Button (新增翻译)
+                // Footer
                 footer_col_1: "Catalog", 
                 footer_col_2: "Company", 
                 footer_col_3: "Contact", 
@@ -503,7 +536,6 @@
                 success_title: "提交成功！", success_desc: "我们团队会尽快联系您。",
                 footer_about: "上市企业。<br>您值得信赖的全球及清真供应链伙伴。",
                 
-                // Footer translations
                 footer_col_1: "产品目录", 
                 footer_col_2: "关于公司", 
                 footer_col_3: "联系我们", 
@@ -557,7 +589,6 @@
                 success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время.",
                 footer_about: "Публичная компания.<br>Ваш надежный партнер в глобальных и Халяль поставках.",
                 
-                // Footer translations
                 footer_col_1: "Продукция", 
                 footer_col_2: "Компания", 
                 footer_col_3: "Контакты", 
