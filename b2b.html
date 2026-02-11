@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Sourcing | GUOQUAN LIFE</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Roboto', 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        .brand-red { background-color: #B91C1C; }
+        .text-brand-red { color: #B91C1C; }
+        .b2b-hero-section { background-color: #111827; position: relative; overflow: hidden; }
+        .b2b-hero-bg-img { background-image: url('hero.jpg'); background-size: cover; background-position: center; }
+        .factory-bg { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('factory.jpg'); background-color: #111827; background-size: cover; background-position: center; background-attachment: fixed; }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .tab-active { background-color: #B91C1C; color: white; border-color: #B91C1C; }
+        .modal-enter { animation: modalIn 0.3s ease-out forwards; }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        img[src=""] { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="logo.png" alt="GUOQUAN LIFE" style="height: 32px; width: auto;" class="md:h-12" onerror="this.style.display='none'">
+                        <span class="text-xl md:text-2xl font-black text-gray-900 tracking-tighter uppercase">GUOQUAN LIFE</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-red-700 font-medium transition" data-i18n="nav_home">Home</a>
+                        
+                        <div class="relative group py-4">
+                            <button class="flex items-center gap-1 text-red-700 font-bold transition cursor-pointer border-b-2 border-red-700">
+                                <span data-i18n="nav_solutions">Solutions</span>
+                                <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div class="absolute left-0 top-full w-48 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden hidden group-hover:block transform origin-top transition">
+                                <a href="#" class="block px-5 py-3 text-sm font-bold bg-red-50 text-red-700 transition border-b border-gray-50" data-i18n="nav_b2b">Supply Chain</a>
+                                <a href="b2c.html" class="block px-5 py-3 text-sm text-gray-600 hover:bg-red-50 hover:text-red-700 transition" data-i18n="nav_b2c">Cooperation</a>
+                            </div>
+                        </div>
+
+                        <a href="index.html#about" class="text-gray-700 hover:text-red-700 font-medium" data-i18n="nav_about">About Us</a>
+                    </div>
+                    
+                    <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded focus:ring-red-700 focus:border-red-700 block p-2">
+                        <option value="en" selected>🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                    </select>
+
+                    <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-i18n="nav_contact">Contact HQ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="b2b-hero-section h-screen min-h-[600px] flex pt-20">
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16 bg-white z-10 relative">
+            <div class="max-w-lg fade-in-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                    <span class="w-2 h-2 rounded-full bg-red-600"></span> For Global Buyers
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
+                    <span data-i18n="hero_title_1">The Super Supply Chain</span> <br> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-500" data-i18n="hero_title_2">Behind 10,000 Stores</span>
+                </h1>
+                <p class="text-lg text-gray-500 mb-8 leading-relaxed" data-i18n="hero_desc">
+                    No more fragmented sourcing. We provide a one-stop managed service from "Source Sourcing" to "Export Customs Clearance".
+                    <br><strong class="text-gray-900">Listed Company · Halal Certified · Global Fulfillment</strong>
+                </p>
+                <div class="flex gap-4">
+                    <a href="#products" class="px-8 py-4 brand-red text-white font-bold rounded-lg shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-i18n="btn_catalog">View Catalog</a>
+                    <a href="#inquiry" class="px-8 py-4 bg-white text-red-700 border-2 border-red-700 font-bold rounded-lg hover:bg-red-50 transition" data-i18n="btn_contact">Contact Us</a>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 text-[10rem] font-black text-gray-50 opacity-50 pointer-events-none -z-10 leading-none select-none">B2B</div>
+        </div>
+        <div class="hidden lg:block lg:w-1/2 relative b2b-hero-bg-img">
+            <div class="absolute inset-0 bg-gray-900/40"></div>
+            <div class="absolute bottom-10 left-10 text-white max-w-sm p-6 bg-black/40 backdrop-blur rounded-xl border border-white/10">
+                <div class="text-2xl font-bold mb-1">400,000+</div>
+                <div class="text-sm opacity-80 uppercase tracking-widest" data-i18n="hero_stat">Daily Orders</div>
+            </div>
+        </div>
+    </header>
+
+    <section id="painpoints" class="py-12 md:py-24 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-4" data-i18n="pain_title">Tired of Fragmented Sourcing?</h2>
+                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto" data-i18n="pain_desc">Dealing with multiple factories and inconsistent quality is eating up your profits.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
+                <div class="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+                    <div class="flex items-center gap-4 mb-6 border-b border-gray-100 pb-4">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fas fa-times text-lg md:text-xl"></i></div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-600" data-i18n="pain_box1_title">Traditional Model</h3>
+                    </div>
+                    <ul class="space-y-6 flex-1">
+                        <li class="flex gap-4"><i class="fas fa-users-slash text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-i18n="pain_box1_p1_title">Multiple Contacts</strong><span class="text-sm text-gray-500" data-i18n="pain_box1_p1_desc">Coordinating with 10+ factories just to fill one container.</span></div></li>
+                        <li class="flex gap-4"><i class="fas fa-exclamation-triangle text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-i18n="pain_box1_p2_title">Quality Risks</strong><span class="text-sm text-gray-500" data-i18n="pain_box1_p2_desc">Inconsistent standards and lack of Halal compliance.</span></div></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-2xl border-2 border-red-700 shadow-2xl relative md:transform md:-translate-y-4 flex flex-col">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-700 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg" data-i18n="pain_badge">Recommended</div>
+                    <div class="flex items-center gap-4 mb-6 border-b border-red-100 pb-4 mt-2">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><i class="fas fa-check text-lg md:text-xl"></i></div>
+                        <h3 class="text-xl md:text-2xl font-bold text-red-900" data-i18n="pain_box2_title">Guoquan Integration</h3>
+                    </div>
+                    <ul class="space-y-6 flex-1">
+                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-i18n="pain_box2_p1_title">One-Stop Partner</strong><span class="text-sm text-gray-600" data-i18n="pain_box2_p1_desc">We manage sourcing, QC, and consolidation for you.</span></div></li>
+                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-i18n="pain_box2_p2_title">Halal Verified</strong><span class="text-sm text-gray-600" data-i18n="pain_box2_p2_desc">Strict on-site audits and certificate reviews for Muslim markets.</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-12 md:py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-12">
+                <div><span class="text-red-700 font-bold tracking-wider uppercase">Our Catalog</span><h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2" data-i18n="cat_title">Regional Selection</h2></div>
+                <div class="flex gap-2 mt-4 md:mt-0">
+                    <button onclick="switchTab('asia')" id="btn-asia" class="tab-active px-6 py-2 brand-red text-white font-bold rounded transition" data-i18n="tab_asia">Central Asia / Russia</button>
+                    <button onclick="switchTab('na')" id="btn-na" class="px-6 py-2 bg-white text-gray-600 font-bold rounded hover:bg-gray-200 transition" data-i18n="tab_na">North America</button>
+                </div>
+            </div>
+            <div id="content-asia" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up">
+                <div onclick="openModal('hotpot')" class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
+                    <img src="cover-hotpot.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 text-white"><h3 class="text-xl md:text-2xl font-bold" data-i18n="cat_hotpot">Hotpot Series</h3><p class="text-gray-300 mt-2" data-i18n="cat_hotpot_desc">Soup Base / Fish Balls / Bean Products</p></div>
+                </div>
+                <div onclick="openModal('bbq')" class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
+                    <img src="cover-bbq.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 text-white"><h3 class="text-xl md:text-2xl font-bold" data-i18n="cat_bbq">BBQ Series</h3><p class="text-gray-300 mt-2" data-i18n="cat_bbq_desc">Skewers / Sauces / Grills</p></div>
+                </div>
+                <div onclick="openModal('veg')" class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
+                    <img src="cover-veg.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 text-white"><h3 class="text-xl md:text-2xl font-bold" data-i18n="cat_veg">Vegetables</h3><p class="text-gray-300 mt-2" data-i18n="cat_veg_desc">Roots / Mushrooms / Clean Veg</p></div>
+                </div>
+            </div>
+            <div id="content-na" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up">
+                <div onclick="openModal('na-1')" class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
+                    <img src="na-1.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 text-white"><h3 class="text-xl md:text-2xl font-bold" data-i18n="cat_na_1">Plant-Based Bases</h3><p class="text-gray-300 mt-2" data-i18n="cat_na_1_desc">FDA Compliant</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inquiry" class="py-12 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gray-900 text-white p-8 md:p-12 flex flex-col justify-between">
+                    <div>
+                        <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block">Contact Us</span>
+                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-i18n="form_title_left">Partner with Guoquan</h2>
+                        <p class="text-gray-400 mb-8" data-i18n="form_desc_left">Ready to expand your business? Our export team is here to assist.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start"><i class="fas fa-envelope text-red-500 mt-1 mr-4"></i><div><h4 class="font-bold">Email</h4><p class="text-gray-400">overseas@guoquan.cn</p></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-8 md:p-12">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <input type="hidden" name="_subject" value="【B2B 采购】Supply Chain Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900" data-i18n="form_title_right">Send Inquiry</h3>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_name">Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_company">Company</label>
+                                <input type="text" name="company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_email">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_msg">Message</label>
+                            <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700"></textarea>
+                        </div>
+                        <button type="submit" class="w-full brand-red text-white font-bold py-4 rounded hover:bg-red-800 transition transform hover:-translate-y-1" data-i18n="form_btn">Submit Inquiry</button>
+                    </form>
+
+                    <div id="successMessage" class="hidden h-full flex flex-col justify-center items-center text-center py-12">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-check text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="success_title">Sent Successfully!</h3>
+                        <p class="text-gray-600 mb-6" data-i18n="success_desc">Our team will contact you shortly.</p>
+                        <button onclick="resetForm()" class="text-red-700 font-bold hover:underline">Send another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer-contact" class="bg-gray-900 text-gray-300 py-16 mt-auto border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 text-center md:text-left">
+            <div>
+                <h3 class="text-white text-2xl font-black mb-6">GUOQUAN LIFE</h3>
+                <p class="text-sm leading-relaxed mb-4" data-i18n="footer_desc">Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_links">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="b2b.html" class="hover:text-white" data-i18n="nav_b2b">Supply Chain</a></li>
+                    <li><a href="b2c.html" class="hover:text-white" data-i18n="nav_b2c">Cooperation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_info">Information</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html#about" class="hover:text-white" data-i18n="nav_about">About Us</a></li>
+                    <li><a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_contact">Contact Us</h4>
+                <a href="mailto:overseas@guoquan.cn" class="block w-full text-center brand-red text-white py-3 rounded font-bold hover:bg-red-800 transition" data-i18n="footer_email_btn">Send Email</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; 2024 GUOQUAN LIFE (SHANGHAI) CO., LTD. All rights reserved.
+        </div>
+    </footer>
+
+    <div id="product-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full modal-enter">
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title" data-i18n="modal_title">Product List</h3>
+                    <button type="button" class="text-gray-400 hover:text-red-700 focus:outline-none" onclick="closeModal()"><i class="fas fa-times text-xl"></i></button>
+                </div>
+                <div id="modal-content" class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 max-h-[70vh] overflow-y-auto grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" onclick="location.href='#inquiry'; closeModal();" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-700 text-base font-medium text-white hover:bg-red-800 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" data-i18n="modal_btn_inquiry">Inquire Now</button>
+                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal()" data-i18n="modal_btn_close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", nav_solutions: "Solutions", nav_about: "About Us", nav_contact: "Contact HQ",
+                nav_b2b: "Supply Chain", nav_b2c: "Cooperation",
+                hero_title_1: "The Super Supply Chain", hero_title_2: "Behind 10,000 Stores",
+                hero_desc: "No more fragmented sourcing. We provide a one-stop managed service from 'Source Sourcing' to 'Export Customs Clearance'. Listed Company · Halal Certified · Global Fulfillment",
+                btn_catalog: "View Catalog", btn_contact: "Contact Us", hero_stat: "Daily Orders",
+                pain_title: "Tired of Fragmented Sourcing?", pain_desc: "Dealing with multiple factories and inconsistent quality is eating up your profits.",
+                pain_box1_title: "Traditional Model", pain_box1_p1_title: "Multiple Contacts", pain_box1_p1_desc: "Coordinating with 10+ factories just to fill one container.",
+                pain_box1_p2_title: "Quality Risks", pain_box1_p2_desc: "Inconsistent standards and lack of Halal compliance.",
+                pain_badge: "Recommended", pain_box2_title: "Guoquan Integration", 
+                pain_box2_p1_title: "One-Stop Partner", pain_box2_p1_desc: "We manage sourcing, QC, and consolidation for you.",
+                pain_box2_p2_title: "Halal Verified", pain_box2_p2_desc: "Strict on-site audits and certificate reviews for Muslim markets.",
+                cat_title: "Regional Selection", tab_asia: "Central Asia / Russia", tab_na: "North America",
+                cat_hotpot: "Hotpot Series", cat_hotpot_desc: "Soup Base / Fish Balls / Bean Products",
+                cat_bbq: "BBQ Series", cat_bbq_desc: "Skewers / Sauces / Grills",
+                cat_veg: "Vegetables", cat_veg_desc: "Roots / Mushrooms / Clean Veg",
+                cat_na_1: "Plant-Based Bases", cat_na_1_desc: "FDA Compliant",
+                form_title_left: "Partner with Guoquan", form_desc_left: "Ready to expand your business? Our export team is here to assist.",
+                form_title_right: "Send Inquiry", form_name: "Name", form_company: "Company", form_email: "Email", form_msg: "Message", form_btn: "Submit Inquiry",
+                footer_desc: "Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.", footer_links: "Quick Links",
+                footer_info: "Information", footer_privacy: "Privacy Policy", footer_contact: "Contact Us", footer_email_btn: "Send Email",
+                modal_title: "Product List", modal_btn_inquiry: "Inquire Now", modal_btn_close: "Close",
+                success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly."
+            },
+            zh: {
+                nav_home: "首页", nav_solutions: "商业选择", nav_about: "关于我们", nav_contact: "联系总部", nav_b2b: "供应链采购", nav_b2c: "开店合作",
+                hero_title_1: "万店连锁背后的", hero_title_2: "超级供应链",
+                hero_desc: "不再为碎片化采购烦恼。提供从“源头寻源”到“出口报关”的一站式托管服务。上市企业 · 清真认证 · 全球履约",
+                btn_catalog: "查看货盘", btn_contact: "联系采购", hero_stat: "日处理订单量",
+                pain_title: "厌倦了碎片化的跨国采购？", pain_desc: "对接多家工厂、质量参差不齐，正在吞噬您的利润。",
+                pain_box1_title: "传统采购模式", pain_box1_p1_title: "多头对接", pain_box1_p1_desc: "为了凑齐货盘，需要同时协调 10+ 家工厂。",
+                pain_box1_p2_title: "品控风险", pain_box1_p2_desc: "标准不统一，缺乏清真合规保障。",
+                pain_badge: "推荐方案", pain_box2_title: "锅圈集成模式", 
+                pain_box2_p1_title: "一站式伙伴", pain_box2_p1_desc: "我们为您统一管理寻源、质检和集货拼柜。",
+                pain_box2_p2_title: "清真核验", pain_box2_p2_desc: "针对穆斯林市场的严格现场核验与证书审查。",
+                cat_title: "区域化精选货盘", tab_asia: "中亚 / 俄语区", tab_na: "北美市场",
+                cat_hotpot: "火锅类", cat_hotpot_desc: "底料 / 鱼丸 / 豆制品",
+                cat_bbq: "烧烤类", cat_bbq_desc: "肉串 / 蘸料 / 炉具",
+                cat_veg: "蔬菜类", cat_veg_desc: "根茎 / 菌菇 / 净菜",
+                cat_na_1: "植物基底料", cat_na_1_desc: "FDA合规",
+                form_title_left: "与锅圈供应链合作", form_desc_left: "准备好拓展您的业务了吗？我们的出口团队将协助您进行产品选择和物流规划。",
+                form_title_right: "发送询盘", form_name: "姓名", form_company: "公司名称", form_email: "电子邮箱", form_msg: "需求/留言", form_btn: "提交询盘",
+                footer_desc: "上市企业 (2517.HK)<br>您值得信赖的全球及清真供应链伙伴。", footer_links: "快速链接",
+                footer_info: "公司信息", footer_privacy: "隐私政策", footer_contact: "联系我们", footer_email_btn: "发送邮件",
+                modal_title: "产品列表", modal_btn_inquiry: "询价此系列", modal_btn_close: "关闭",
+                success_title: "提交成功！", success_desc: "我们团队会尽快联系您。"
+            },
+            ru: {
+                nav_home: "Главная", nav_solutions: "Решения", nav_about: "О нас", nav_contact: "Связаться", nav_b2b: "Поставки (B2B)", nav_b2c: "Партнерство",
+                hero_title_1: "Суперцепь Поставок", hero_title_2: "Для 10 000 Магазинов",
+                hero_desc: "Больше никаких сложностей с закупками. Мы предоставляем комплексные услуги от поиска до экспорта. Листинговая компания · Сертификат Халяль · Глобальная доставка",
+                btn_catalog: "Каталог", btn_contact: "Связаться", hero_stat: "Заказов в день",
+                pain_title: "Устали от сложных закупок?", pain_desc: "Работа с множеством заводов и нестабильное качество съедают вашу прибыль.",
+                pain_box1_title: "Традиционная модель", pain_box1_p1_title: "Много контактов", pain_box1_p1_desc: "Координация с 10+ заводами для заполнения одного контейнера.",
+                pain_box1_p2_title: "Риски качества", pain_box1_p2_desc: "Нестабильные стандарты и отсутствие Халяль.",
+                pain_badge: "Рекомендуем", pain_box2_title: "Интеграция Guoquan", 
+                pain_box2_p1_title: "Единый партнер", pain_box2_p1_desc: "Мы управляем поиском, контролем качества и консолидацией.",
+                pain_box2_p2_title: "Халяль контроль", pain_box2_p2_desc: "Строгие проверки и сертификация для мусульманских рынков.",
+                cat_title: "Региональный выбор", tab_asia: "Центральная Азия / Россия", tab_na: "Северная Америка",
+                cat_hotpot: "Хот-пот Серия", cat_hotpot_desc: "Основы / Рыбные шарики / Соя",
+                cat_bbq: "Барбекю Серия", cat_bbq_desc: "Шашлычки / Соусы / Грили",
+                cat_veg: "Овощи", cat_veg_desc: "Корнеплоды / Грибы / Очищенные",
+                cat_na_1: "Растительные основы", cat_na_1_desc: "Соответствие FDA",
+                form_title_left: "Партнерство с Guoquan", form_desc_left: "Готовы расширить бизнес? Наша экспортная команда поможет вам.",
+                form_title_right: "Отправить запрос", form_name: "Имя", form_company: "Компания", form_email: "Email", form_msg: "Сообщение", form_btn: "Отправить",
+                footer_desc: "Листинговая компания (2517.HK)<br>Ваш надежный глобальный партнер по поставкам.", footer_links: "Ссылки",
+                footer_info: "Информация", footer_privacy: "Конфиденциальность", footer_contact: "Контакты", footer_email_btn: "Отправить E-mail",
+                modal_title: "Список продуктов", modal_btn_inquiry: "Запросить цену", modal_btn_close: "Закрыть",
+                success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function switchTab(region) {
+            document.getElementById('content-asia').classList.add('hidden');
+            document.getElementById('content-na').classList.add('hidden');
+            document.getElementById('btn-asia').className = "px-6 py-2 bg-white text-gray-600 font-bold rounded hover:bg-gray-200 transition";
+            document.getElementById('btn-na').className = "px-6 py-2 bg-white text-gray-600 font-bold rounded hover:bg-gray-200 transition";
+            document.getElementById('content-' + region).classList.remove('hidden');
+            document.getElementById('btn-' + region).className = "px-6 py-2 brand-red text-white font-bold rounded transition";
+        }
+
+        const productsData = {
+            'hotpot': [
+                { name: {en: 'Fish Balls', zh: '鱼丸', ru: 'Рыбные шарики'}, img: 'hotpot-1.jpg' },
+                { name: {en: 'Shrimp Paste', zh: '虾滑', ru: 'Паста из креветок'}, img: 'hotpot-2.jpg' },
+                { name: {en: 'Crab Sticks', zh: '蟹柳', ru: 'Крабовые палочки'}, img: 'hotpot-3.jpg' },
+                { name: {en: 'Fish Tofu', zh: '鱼豆腐', ru: 'Рыбный тофу'}, img: 'hotpot-4.jpg' },
+                { name: {en: 'Clear Oil Base', zh: '清油底料', ru: 'Масляная основа'}, img: 'hotpot-5.jpg' },
+                { name: {en: 'Tomato Base', zh: '番茄底料', ru: 'Томатная основа'}, img: 'hotpot-6.jpg' },
+                { name: {en: 'Bean Roll', zh: '响铃卷', ru: 'Бобовый рулет'}, img: 'hotpot-7.jpg' },
+                { name: {en: 'Sweet Potato Noodles', zh: '红薯粉', ru: 'Лапша из батата'}, img: 'hotpot-8.jpg' }
+            ],
+            'bbq': [
+                { name: {en: 'Squid Skewer', zh: '鱿鱼串', ru: 'Кальмар на шпажке'}, img: 'bbq-1.jpg' },
+                { name: {en: 'Grilled Gluten', zh: '烤面筋', ru: 'Жареный глютен'}, img: 'bbq-2.jpg' },
+                { name: {en: 'BBQ Spices', zh: '烧烤撒料', ru: 'Специи для барбекю'}, img: 'bbq-3.jpg' },
+                { name: {en: 'Signature Sauce', zh: '秘制酱料', ru: 'Фирменный соус'}, img: 'bbq-4.jpg' }
+            ],
+            'veg': [
+                { name: {en: 'Potato', zh: '土豆', ru: 'Картофель'}, img: 'veg-1.jpg' },
+                { name: {en: 'Tomato', zh: '西红柿', ru: 'Помидор'}, img: 'veg-2.jpg' },
+                { name: {en: 'Chinese Cabbage', zh: '白菜', ru: 'Пекинская капуста'}, img: 'veg-3.jpg' },
+                { name: {en: 'Sweet Corn', zh: '玉米', ru: 'Кукуруза'}, img: 'veg-4.jpg' }
+            ],
+            'na-1': [
+                { name: {en: 'Tomato Base', zh: '番茄底料', ru: 'Томатная основа'}, img: 'na-1.jpg' },
+                { name: {en: 'Vegetable Oil Base', zh: '植物油底料', ru: 'Растительная основа'}, img: 'na-2.jpg' }
+            ]
+        };
+
+        function openModal(key) {
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-content');
+            const currentLang = document.getElementById('lang-select').value;
+            content.innerHTML = '';
+            let dataKey = key;
+            if (key.includes('hotpot')) dataKey = 'hotpot';
+            if (key.includes('bbq')) dataKey = 'bbq';
+            if (key.includes('veg')) dataKey = 'veg';
+            const items = productsData[dataKey] || productsData[key] || [];
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'text-center';
+                const productName = item.name[currentLang] || item.name['en'];
+                div.innerHTML = `<div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 h-32 relative"><img src="${item.img}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-300"><div class="absolute inset-0 w-full h-full flex items-center justify-center text-gray-400 bg-gray-100 text-sm font-bold border border-gray-200" style="display:none;">No Image</div></div><h3 class="mt-2 text-sm font-bold text-gray-700">${productName}</h3>`;
+                content.appendChild(div);
+            });
+            modal.classList.remove('hidden');
+        }
+        function closeModal() { document.getElementById('product-modal').classList.add('hidden'); }
+
+        // Form Submission Logic
+        function submitForm(event) {
+            event.preventDefault(); 
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            const formData = new FormData(form);
+            
+            submitBtn.innerText = "Sending..."; 
+            submitBtn.disabled = true;
+
+            fetch("https://formsubmit.co/ajax/overseas@guoquan.cn", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.classList.add('hidden'); 
+                document.getElementById('successMessage').classList.remove('hidden'); 
+            })
+            .catch(error => {
+                alert("Submission failed. Please try again.");
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('contactForm').classList.remove('hidden');
+            const btn = document.querySelector('#contactForm button[type="submit"]');
+            btn.innerText = "Send Inquiry";
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
