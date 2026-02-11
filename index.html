@@ -3,69 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUOQUAN LIFE | Supply Chain Integrator</title>
+    <title>GUOQUAN LIFE | Global Food Solutions</title>
 
     <link rel="icon" type="image/png" href="logo.png">
     
-    <link rel="apple-touch-icon" href="logo.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Roboto', sans-serif; }
-        
-        /* 1. 首页背景图 */
+        body { font-family: 'Roboto', 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        .brand-red { background-color: #B91C1C; }
+        .text-brand-red { color: #B91C1C; }
+
+        /* --- 首页背景图 --- */
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero-bg.jpg');
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero-bg.jpg'); 
             background-color: #1f2937;
             background-size: cover;
             background-position: center;
-            /* 桌面端固定，手机端滚动 (修复iOS显示问题) */
             background-attachment: scroll;
         }
-        @media (min-width: 768px) {
-            .hero-bg { background-attachment: fixed; }
-        }
+        @media (min-width: 768px) { .hero-bg { background-attachment: fixed; } }
 
-        /* 2. 工厂背景图 */
-        .factory-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('factory-bg.jpg');
-            background-color: #111827;
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-        @media (min-width: 768px) {
-            .factory-bg { background-attachment: fixed; }
-        }
-
-        .brand-red { background-color: #B91C1C; }
-        .text-brand-red { color: #B91C1C; }
-        .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; padding: 0 4px; }
-        .lang-btn:hover, .lang-btn.active { opacity: 1; font-weight: 900; text-decoration: underline; color: #B91C1C; }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* 图片占位符 */
         img[src=""] { display: none; }
-        .img-placeholder-bg { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold; text-transform: uppercase; border: 2px dashed #d1d5db; }
-        
-        /* 手机端底部固定按钮样式 */
-        .mobile-sticky-btn {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 50;
-            padding: 16px;
-            background: white;
-            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
-            display: none; /* 默认隐藏，仅在小屏幕显示 */
-        }
-        @media (max-width: 768px) {
-            .mobile-sticky-btn { display: block; }
-            /* 为底部按钮留出空间，防止遮挡Footer */
-            body { padding-bottom: 80px; }
-        }
+        .img-placeholder-bg { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.875rem; font-weight: 500; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -76,190 +42,129 @@
                 <div class="flex items-center gap-3">
                     <a href="#" class="flex items-center gap-2">
                         <img src="logo.png" alt="GUOQUAN LIFE" style="height: 32px; width: auto;" class="md:h-12" onerror="this.style.display='none'">
-                        <span class="text-xl md:text-2xl font-black text-gray-900 tracking-tighter uppercase">
-                            GUOQUAN LIFE
-                        </span>
+                        <span class="text-xl md:text-2xl font-black text-gray-900 tracking-tighter uppercase">GUOQUAN LIFE</span>
                     </a>
                 </div>
                 
-                <div class="flex items-center space-x-6">
-                    <div class="hidden md:flex space-x-6">
-                        <a href="#solutions" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_solution">Solutions</a>
-                        <a href="#products" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_product">Catalog</a>
-                        <a href="#about" class="text-gray-700 hover:text-red-700 font-medium" data-key="nav_about">About Us</a>
+                <div class="flex items-center space-x-8">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="text-red-700 font-bold transition border-b-2 border-red-700" data-i18n="nav_home">Home</a>
+                        
+                        <div class="relative group py-4">
+                            <button class="flex items-center gap-1 text-gray-700 hover:text-red-700 font-medium transition cursor-pointer">
+                                <span data-i18n="nav_solutions">Solutions</span>
+                                <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div class="absolute left-0 top-full w-48 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden hidden group-hover:block transform origin-top transition">
+                                <a href="b2b.html" class="block px-5 py-3 text-sm text-gray-600 hover:bg-red-50 hover:text-red-700 transition border-b border-gray-50" data-i18n="nav_b2b">Supply Chain</a>
+                                <a href="b2c.html" class="block px-5 py-3 text-sm text-gray-600 hover:bg-red-50 hover:text-red-700 transition" data-i18n="nav_b2c">Cooperation</a>
+                            </div>
+                        </div>
+
+                        <a href="#about" class="text-gray-700 hover:text-red-700 font-medium" data-i18n="nav_about">About Us</a>
                     </div>
                     
-                    <div class="flex space-x-1 text-xs md:text-sm border-l pl-4 border-gray-300 select-none">
-                        <span onclick="changeLanguage('en')" class="lang-btn active" id="btn-en">EN</span>
-                        <span class="text-gray-300">|</span>
-                        <span onclick="changeLanguage('cn')" class="lang-btn" id="btn-cn">CN</span>
-                        <span class="text-gray-300">|</span>
-                        <span onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</span>
-                    </div>
+                    <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded focus:ring-red-700 focus:border-red-700 block p-2">
+                        <option value="en" selected>🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                    </select>
 
-                    <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-key="btn_quote">Start Sourcing</a>
+                    <a href="#inquiry" class="hidden md:block px-5 py-2 brand-red text-white font-bold rounded hover:bg-red-800 transition" data-i18n="nav_contact">Contact HQ</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="mobile-sticky-btn">
-        <a href="#inquiry" class="block w-full brand-red text-white text-center font-bold py-3 rounded-lg shadow-lg text-lg" data-key="btn_quote">
-            Start Sourcing
-        </a>
-    </div>
-
     <header class="hero-bg min-h-screen flex items-center justify-center text-center text-white relative pt-16">
-        <div class="max-w-5xl px-4">
-            <p class="text-sm md:text-xl uppercase tracking-widest mb-4 opacity-90 border-b border-white/30 inline-block pb-2" data-key="hero_sub">
-                China’s Premier Supply Chain Integrator
+        <div class="max-w-5xl px-4 fade-in">
+            <p class="text-sm md:text-xl uppercase tracking-widest mb-4 opacity-90 border-b border-white/30 inline-block pb-2" data-i18n="hero_subtitle">
+                Leading Digital Supply Chain Integrator
             </p>
-            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight" data-key="hero_title">
-                One Partner. Premium & <br> <span class="text-yellow-400">Halal</span> Supply Chain.
+            
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">
+                <span data-i18n="hero_title_1">Empowering Global Food Business</span> <br> 
+                <span class="text-yellow-400" data-i18n="hero_title_2">With Digital Supply Chain</span>
             </h1>
-            <p class="text-lg md:text-2xl mb-10 text-gray-200 font-light" data-key="hero_desc">
-                We integrate, verify, and consolidate. <br>Stop dealing with 10 factories. Deal with ONE trusted partner.
+            
+            <p class="text-lg md:text-2xl mb-12 text-gray-200 font-light max-w-3xl mx-auto" data-i18n="hero_desc">
+                From source factories to global tables, providing one-stop solutions for "Premium Sourcing" and "Business Models".
             </p>
-            <div class="flex justify-center gap-4 flex-wrap pb-10 md:pb-0">
-                <a href="#products" class="px-8 py-4 brand-red text-white font-bold text-lg rounded shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1" data-key="btn_explore">
-                    View Catalog
-                </a>
-            </div>
+            
+            <a href="#gateway" class="animate-bounce inline-flex flex-col items-center text-white/70 hover:text-white transition cursor-pointer group">
+                <span class="text-sm uppercase tracking-widest mb-2 group-hover:mb-3 transition-all" data-i18n="hero_cta">Choose Your Path</span>
+                <i class="fas fa-chevron-down text-4xl"></i>
+            </a>
         </div>
     </header>
 
-    <section class="bg-gray-900 text-white py-8 md:py-12 border-b-4 border-red-700">
+    <section class="bg-gray-900 text-white py-8 md:py-12 border-b-4 border-red-700 relative z-20">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
                 <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">IPO</div>
-                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_1">Publicly Listed</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-i18n="stat_ipo">Listed (2517.HK)</div>
             </div>
             <div>
                 <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">350+</div>
-                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_2">Partner Factories</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-i18n="stat_factory">Partner Factories</div>
             </div>
             <div>
                 <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">Halal</div>
-                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_3">Certified Supply</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-i18n="stat_halal">Certified System</div>
             </div>
             <div>
                 <div class="text-3xl md:text-4xl font-bold text-red-500 mb-1">TOP 10</div>
-                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-key="stat_4">China Unicorn</div>
+                <div class="text-xs md:text-sm uppercase tracking-wide text-gray-400" data-i18n="stat_unicorn">Unicorn Enterprise</div>
             </div>
         </div>
     </section>
 
-    <section id="painpoints" class="py-12 md:py-24 bg-gray-50 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-4" data-key="pain_title">Tired of Fragmented Sourcing?</h2>
-                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto" data-key="pain_sub">Dealing with multiple factories and inconsistent quality eats your profit.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
-                <div class="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
-                    <div class="flex items-center gap-4 mb-6 border-b border-gray-100 pb-4">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500"><i class="fas fa-times text-lg md:text-xl"></i></div>
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-600" data-key="pain_loss_title">The Old Way</h3>
-                    </div>
-                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Hassle Level</span><span class="text-red-500">High (90%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-red-500 h-3 rounded-full risk-bar" style="width: 90%"></div></div></div>
-                    <ul class="space-y-6 flex-1">
-                        <li class="flex gap-4"><i class="fas fa-users-slash text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-key="pain_loss_1_head">Multiple Contacts</strong><span class="text-sm text-gray-500" data-key="pain_loss_1_desc">Coordinating with 10+ factories is exhausting.</span></div></li>
-                        <li class="flex gap-4"><i class="fas fa-exclamation-triangle text-gray-400 mt-1"></i><div><strong class="block text-gray-800" data-key="pain_loss_2_head">Quality Risk</strong><span class="text-sm text-gray-500" data-key="pain_loss_2_desc">Inconsistent standards and Halal compliance issues.</span></div></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 md:p-8 rounded-2xl border-2 border-red-700 shadow-2xl relative md:transform md:-translate-y-4 flex flex-col">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-700 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg">Recommended</div>
-                    <div class="flex items-center gap-4 mb-6 border-b border-red-100 pb-4 mt-2">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700"><i class="fas fa-check text-lg md:text-xl"></i></div>
-                        <h3 class="text-xl md:text-2xl font-bold text-red-900" data-key="pain_gain_title">GUOQUAN Integrator</h3>
-                    </div>
-                    <div class="mb-8"><div class="flex justify-between text-sm font-bold text-gray-500 mb-1"><span>Efficiency</span><span class="text-green-600">Excellent (95%)</span></div><div class="w-full bg-gray-200 rounded-full h-3"><div class="bg-green-500 h-3 rounded-full risk-bar" style="width: 95%"></div></div></div>
-                    <ul class="space-y-6 flex-1">
-                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-key="pain_gain_1_head">One-Stop Partner</strong><span class="text-sm text-gray-600" data-key="pain_gain_1_desc">We manage sourcing, QA, and consolidation for you.</span></div></li>
-                        <li class="flex gap-4"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0"><i class="fas fa-check text-green-600 text-xs"></i></div><div><strong class="block text-gray-900" data-key="pain_gain_2_head">Verified Halal</strong><span class="text-sm text-gray-600" data-key="pain_gain_2_desc">Strict on-site verification for Muslim markets.</span></div></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="gateway" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 30px 30px;"></div>
 
-    <section id="solutions" class="py-12 md:py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 md:mb-20">
-                <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="sol_tag">Our Workflow</span>
-                <h2 class="text-2xl md:text-5xl font-black text-gray-900 mb-6" data-key="sol_title">Integrated Supply Chain</h2>
-                <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto" data-key="sol_desc">From finding the best factories to delivering market-ready products.</p>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4" data-i18n="gateway_title">Customize Your Business Solution</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <div class="hidden md:block absolute top-12 left-[10%] w-[80%] h-0.5 bg-gray-200 -z-10"></div>
-                <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
-                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-red-700 text-white rounded-2xl flex items-center justify-center shadow-lg rotate-3 group-hover:rotate-12 transition"><span class="text-2xl font-black">1</span></div>
-                    <div class="mb-4 text-red-700"><i class="fas fa-search text-4xl"></i></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_1_title">Premium Sourcing</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_1_desc">Access our network of 350+ audited factories (Hotpot, BBQ, Snacks).</p>
-                </div>
-                <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
-                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white text-red-700 border-2 border-red-700 rounded-2xl flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-12 transition"><span class="text-2xl font-black">2</span></div>
-                    <div class="mb-4 text-red-700"><i class="fas fa-certificate text-4xl"></i></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_2_title">Halal Verification</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_2_desc">Strict QA and Halal certification checks for Central Asian markets.</p>
-                </div>
-                <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
-                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-red-700 text-white rounded-2xl flex items-center justify-center shadow-lg rotate-3 group-hover:rotate-12 transition"><span class="text-2xl font-black">3</span></div>
-                    <div class="mb-4 text-red-700"><i class="fas fa-box-open text-4xl"></i></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_3_title">Smart Consolidation</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_3_desc">Mix multiple SKUs (Ingredients + Packaging) into one container.</p>
-                </div>
-                <div class="group relative bg-white p-6 pt-12 rounded-xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 text-center">
-                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white text-red-700 border-2 border-red-700 rounded-2xl flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-12 transition"><span class="text-2xl font-black">4</span></div>
-                    <div class="mb-4 text-red-700"><i class="fas fa-ship text-4xl"></i></div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3" data-key="sol_4_title">Export Logistics</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed" data-key="sol_4_desc">We handle customs and cold-chain logistics. You just receive goods.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="products" class="py-12 md:py-20 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-end mb-8 md:mb-12">
-                <div>
-                    <span class="text-brand-red font-bold tracking-wider uppercase" data-key="prod_sub">Our Catalog</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2" data-key="prod_title">Curated Categories</h2>
-                </div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
-                    <img src="product-hotpot.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-hotpot.jpg</div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_1_title">Hot Pot Series</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_1_desc">Soup Bases & Dips (Halal)</p>
+            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <a href="b2b.html" class="group block bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border-t-8 border-blue-800">
+                    <div class="h-56 relative overflow-hidden bg-gray-200">
+                        <div class="absolute inset-0 bg-blue-900/60 flex items-end p-8 z-10">
+                            <div>
+                                <i class="fas fa-dolly text-4xl text-blue-300 mb-2"></i>
+                                <h3 class="text-3xl font-bold text-white" data-i18n="gateway_b2b_role">I am a Buyer</h3>
+                                <p class="text-blue-100 text-sm font-bold uppercase tracking-wide">Supply Chain</p>
+                            </div>
+                        </div>
+                        <img src="factory-bg.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     </div>
-                </div>
-                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
-                    <img src="product-bbq.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-bbq.jpg</div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_2_title">BBQ & Grill</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_2_desc">Marinated Meat & Spices</p>
+                    <div class="p-8">
+                        <p class="text-gray-600 mb-6 text-lg" data-i18n="gateway_b2b_desc">Sourcing factories, stable supply, and supermarket sales solutions.</p>
+                        <span class="text-blue-800 font-bold flex items-center group-hover:gap-3 transition-all">
+                            <span data-i18n="gateway_b2b_btn">Enter B2B Zone</span> <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
                     </div>
-                </div>
-                <div class="relative h-80 md:h-96 group overflow-hidden rounded-lg cursor-pointer">
-                    <img src="product-fresh.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 w-full h-full img-placeholder-bg" style="display:none;">Put: product-fresh.jpg</div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-xl md:text-2xl font-bold" data-key="card_3_title">Trending Snacks</h3>
-                        <p class="text-gray-300 mt-2" data-key="card_3_desc">Konjac & Casual Food</p>
+                </a>
+
+                <a href="b2c.html" class="group block bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border-t-8 border-red-700">
+                    <div class="h-56 relative overflow-hidden bg-gray-200">
+                        <div class="absolute inset-0 bg-red-900/60 flex items-end p-8 z-10">
+                            <div>
+                                <i class="fas fa-store text-4xl text-yellow-300 mb-2"></i>
+                                <h3 class="text-3xl font-bold text-white" data-i18n="gateway_b2c_role">I am an Entrepreneur</h3>
+                                <p class="text-red-100 text-sm font-bold uppercase tracking-wide">Business Opportunity</p>
+                            </div>
+                        </div>
+                        <img src="store-bg.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="#inquiry" class="inline-block px-10 py-4 bg-white border-2 border-red-700 text-red-700 font-bold rounded-lg hover:bg-red-700 hover:text-white transition transform hover:-translate-y-1 shadow-md uppercase tracking-wider" data-key="btn_catalog">
-                    Request Full Catalog
+                    <div class="p-8">
+                        <p class="text-gray-600 mb-6 text-lg" data-i18n="gateway_b2c_desc">Seeking store projects, business models, and profitable opportunities.</p>
+                        <span class="text-red-700 font-bold flex items-center group-hover:gap-3 transition-all">
+                            <span data-i18n="gateway_b2c_btn">Enter Cooperation Zone</span> <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
                 </a>
             </div>
         </div>
@@ -273,83 +178,45 @@
                     <img src="about-company.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" class="rounded-xl shadow-2xl w-full object-cover h-64 md:h-[500px]">
                     <div class="rounded-xl shadow-2xl w-full h-64 md:h-[500px] img-placeholder-bg" style="display:none;">Put: about-company.jpg</div>
                     <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-white p-4 md:p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-red-700">
-                        <p class="text-xs md:text-sm text-gray-500 uppercase tracking-widest font-bold mb-1" data-key="about_badge_label">Recognized By</p>
-                        <p class="text-sm md:text-lg font-black text-gray-900" data-key="about_badge_val">Forbes Gazelle & Unicorn Enterprise</p>
+                        <p class="text-xs md:text-sm text-gray-500 uppercase tracking-widest font-bold mb-1" data-i18n="about_badge_label">Recognized By</p>
+                        <p class="text-sm md:text-lg font-black text-gray-900" data-i18n="about_badge_val">Forbes Gazelle & Unicorn Enterprise</p>
                     </div>
                 </div>
                 <div>
-                    <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-key="about_tag">About GUOQUAN LIFE</span>
-                    <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-6 leading-tight" data-key="about_title">China's Leading Digital Community Meal Solution Provider</h2>
-                    <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed" data-key="about_desc_1">
+                    <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block" data-i18n="about_tag">About GUOQUAN LIFE</span>
+                    <h2 class="text-2xl md:text-4xl font-black text-gray-900 mb-6 leading-tight" data-i18n="about_title">China's Leading Digital Community Meal Solution Provider</h2>
+                    <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed" data-i18n="about_desc_1">
                         Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a "Unicorn" enterprise in the food sector.
                     </p>
-                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed" data-key="about_desc_2">
-                        With over <strong>9,660 retail stores</strong> serving millions of families, we have digitally reconstructed the traditional supply chain. Now, we are opening this proven, high-efficiency supply chain to global partners, offering premium ingredients with extreme cost-effectiveness.
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+                        <span data-i18n="about_desc_2_prefix">With over</span> <strong>9,660</strong> <span data-i18n="about_desc_2_suffix">retail stores serving millions of families, we have digitally reconstructed the traditional supply chain. Now, we are opening this proven, high-efficiency supply chain to global partners, offering premium ingredients with extreme cost-effectiveness.</span>
                     </p>
                     <div class="flex gap-4 md:gap-8 border-t border-gray-200 pt-8">
-                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_1_val">2017</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_1_lbl">Founded</span></div>
-                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_2_val">30+</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_2_lbl">Listed Partners</span></div>
-                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-key="about_stat_3_val">ISO</span><span class="text-xs md:text-sm text-gray-500" data-key="about_stat_3_lbl">Certified</span></div>
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-i18n="about_stat_1_val">2017</span><span class="text-xs md:text-sm text-gray-500" data-i18n="about_stat_1_lbl">Founded</span></div>
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-i18n="about_stat_2_val">30+</span><span class="text-xs md:text-sm text-gray-500" data-i18n="about_stat_2_lbl">Listed Partners</span></div>
+                        <div><span class="block text-2xl md:text-3xl font-black text-red-700" data-i18n="about_stat_3_val">ISO</span><span class="text-xs md:text-sm text-gray-500" data-i18n="about_stat_3_lbl">Certified</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="factory" class="factory-bg py-20 md:py-32 relative text-white">
-        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-6" data-key="factory_title">Supply Chain Powerhouse</h2>
-            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-16" data-key="factory_desc">
-                Massive scale, digital management, and strict quality control. We guarantee stability for your business.
-            </p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
-                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_1_val">350+</span>
-                    <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_1">Partner Factories</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_2_val">17</span>
-                    <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_2">Warehouses</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_3_val">300k m²</span>
-                    <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_3">Storage Area</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_4_val">400k+</span>
-                    <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_4">Daily Orders</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur p-4 md:p-6 rounded border border-white/20 hover:bg-white/20 transition">
-                    <span class="block text-2xl md:text-3xl font-bold text-red-500 mb-1" data-key="fac_5_val">14,000+</span>
-                    <span class="text-xs text-gray-300 uppercase tracking-wide" data-key="fac_5">Logistics Vehicles</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="inquiry" class="py-12 md:py-24 bg-gray-50">
+    <section id="inquiry" class="py-12 md:py-24 bg-gray-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div class="bg-gray-900 text-white p-8 md:p-12 flex flex-col justify-between">
                     <div>
-                        <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block" data-key="contact_tag">Contact Us</span>
-                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-key="contact_title">Partner with GUOQUAN LIFE</h2>
-                        <p class="text-gray-400 mb-8" data-key="contact_desc">Ready to scale your business? Our export team is here to assist you with product selection and logistics.</p>
+                        <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block">Contact Us</span>
+                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-i18n="form_main_title">General Inquiry</h2>
+                        <p class="text-gray-400 mb-8" data-i18n="form_main_desc">Not sure which path fits you? Leave a message, and we'll guide you.</p>
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <i class="fas fa-envelope text-red-500 mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-bold" data-key="contact_lbl_email">Email</h4>
-                                    <p class="text-gray-400">overseas@guoquan.cn</p>
-                                </div>
+                                <div><h4 class="font-bold">Email</h4><p class="text-gray-400">overseas@guoquan.cn</p></div>
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-map-marker-alt text-red-500 mt-1 mr-4"></i>
-                                <div>
-                                    <h4 class="font-bold" data-key="contact_lbl_hq">Headquarters</h4>
-                                    <p class="text-gray-400" data-key="contact_val_hq">Shanghai / Zhengzhou, China</p>
-                                </div>
+                                <div><h4 class="font-bold" data-i18n="contact_hq_label">Headquarters</h4><p class="text-gray-400">Shanghai / Zhengzhou, China</p></div>
                             </div>
                         </div>
                     </div>
@@ -357,34 +224,30 @@
                 
                 <div class="p-8 md:p-12">
                     <form id="contactForm" onsubmit="submitForm(event)">
-                        <input type="hidden" name="_subject" value="【新询盘】GUOQUAN Website Inquiry">
+                        <input type="hidden" name="_subject" value="【首页咨询】General Website Inquiry">
                         <input type="hidden" name="_captcha" value="false">
 
-                        <h3 class="text-2xl font-bold mb-6 text-gray-900" data-key="form_header">Send an Inquiry</h3>
-                        
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900" data-i18n="form_title_right">Send Message</h3>
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_name">Name</label>
-                                <input type="text" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_name">Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 transition">
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_company">Company</label>
-                                <input type="text" name="company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_phone">Phone</label>
+                                <input type="text" name="phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 transition">
                             </div>
                         </div>
-
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_email">Email Address</label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_email">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 transition">
                         </div>
-
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-gray-700 mb-2" data-key="form_msg">Message / Requirements</label>
-                            <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 focus:border-transparent"></textarea>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_msg">Message / Question</label>
+                            <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 transition"></textarea>
                         </div>
-
-                        <button type="submit" class="w-full bg-red-700 text-white font-bold py-4 rounded hover:bg-red-800 transition transform hover:-translate-y-1" data-key="form_btn">
-                            Send Inquiry
+                        <button type="submit" class="w-full brand-red text-white font-bold py-4 rounded hover:bg-red-800 transition shadow-lg transform hover:-translate-y-1" data-i18n="form_btn">
+                            Submit Inquiry
                         </button>
                     </form>
 
@@ -392,8 +255,8 @@
                         <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-check text-green-600 text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-key="success_title">Sent Successfully!</h3>
-                        <p class="text-gray-600 mb-6" data-key="success_desc">Our team will contact you shortly.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="success_title">Sent Successfully!</h3>
+                        <p class="text-gray-600 mb-6" data-i18n="success_desc">Our team will contact you shortly.</p>
                         <button onclick="resetForm()" class="text-red-700 font-bold hover:underline">Send another</button>
                     </div>
                 </div>
@@ -401,218 +264,189 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-300 py-16">
+    <footer id="footer-contact" class="bg-gray-900 text-gray-300 py-16 mt-auto border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 text-center md:text-left">
             <div>
                 <h3 class="text-white text-2xl font-black mb-6">GUOQUAN LIFE</h3>
-                <p class="text-sm leading-relaxed mb-4" data-key="footer_about">Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.</p>
+                <p class="text-sm leading-relaxed mb-4" data-i18n="footer_desc">Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_1">Catalog</h4>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_links">Quick Links</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white" data-key="card_1_title">Hot Pot Series</a></li>
-                    <li><a href="#" class="hover:text-white" data-key="card_2_title">BBQ Series</a></li>
-                    <li><a href="#" class="hover:text-white" data-key="card_3_title">Trending Snacks</a></li>
+                    <li><a href="b2b.html" class="hover:text-white" data-i18n="nav_b2b">Supply Chain</a></li>
+                    <li><a href="b2c.html" class="hover:text-white" data-i18n="nav_b2c">Cooperation</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_2">Company</h4>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_info">Information</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#about" class="hover:text-white" data-key="nav_about">About Us</a></li>
-                    <li><a href="#factory" class="hover:text-white" data-key="factory_title">Supply Chain</a></li>
+                    <li><a href="#about" class="hover:text-white" data-i18n="nav_about">About Us</a></li>
+                    <li><a href="#" class="hover:text-white" data-i18n="footer_privacy">Privacy Policy</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 uppercase" data-key="footer_col_3">Contact</h4>
-                <a href="mailto:overseas@guoquan.cn" class="block w-full text-center brand-red text-white py-3 rounded font-bold hover:bg-red-800 transition" data-key="footer_btn">Email Sales Team</a>
+                <h4 class="text-white font-bold mb-4 uppercase" data-i18n="footer_contact">Contact Us</h4>
+                <a href="mailto:overseas@guoquan.cn" class="block w-full text-center brand-red text-white py-3 rounded font-bold hover:bg-red-800 transition" data-i18n="footer_email_btn">Send Email</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">&copy; 2024 GUOQUAN LIFE. All rights reserved.</div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; 2024 GUOQUAN LIFE (SHANGHAI) CO., LTD. All rights reserved.
+        </div>
     </footer>
 
     <script>
-        const dict = {
+        const translations = {
             en: {
-                nav_solution: "Solutions", nav_product: "Catalog", nav_about: "About Us", btn_quote: "Start Sourcing",
-                hero_sub: "China’s Premier Supply Chain Integrator",
-                hero_title: "One Partner. Premium & <br> <span class='text-yellow-400'>Halal</span> Supply Chain.",
-                hero_desc: "We integrate, verify, and consolidate. <br>Stop dealing with 10 factories. Deal with ONE trusted partner.",
-                btn_explore: "View Catalog", btn_catalog: "Request Full Catalog",
-                stat_1: "Publicly Listed", stat_2: "Partner Factories", stat_3: "Certified Supply", stat_4: "China Unicorn",
-                
-                pain_title: "Tired of Fragmented Sourcing?", pain_sub: "Dealing with multiple factories and inconsistent quality eats your profit.",
-                pain_loss_title: "The Old Way", pain_loss_1_head: "Multiple Contacts", pain_loss_1_desc: "Coordinating with 10+ factories is exhausting.", pain_loss_2_head: "Quality Risk", pain_loss_2_desc: "Inconsistent standards and Halal compliance issues.",
-                pain_gain_title: "GUOQUAN Integrator", pain_gain_1_head: "One-Stop Partner", pain_gain_1_desc: "We manage sourcing, QA, and consolidation for you.", pain_gain_2_head: "Verified Halal", pain_gain_2_desc: "Strict on-site verification for Muslim markets.",
-                
-                sol_tag: "Our Workflow", sol_title: "Integrated Supply Chain", sol_desc: "From finding the best factories to delivering market-ready products.",
-                sol_1_title: "Premium Sourcing", sol_1_desc: "Access our network of 350+ audited factories (Hotpot, BBQ, Snacks).",
-                sol_2_title: "Halal Verification", sol_2_desc: "Strict QA and Halal certification checks for Central Asian markets.",
-                sol_3_title: "Smart Consolidation", sol_3_desc: "Mix multiple SKUs (Ingredients + Packaging) into one container.",
-                sol_4_title: "Export Logistics", sol_4_desc: "We handle customs and cold-chain logistics. You just receive goods.",
-
-                prod_sub: "Our Catalog", prod_title: "Curated Categories",
-                card_1_title: "Hot Pot Series", card_1_desc: "Soup Bases & Dips (Halal)",
-                card_2_title: "BBQ & Grill", card_2_desc: "Marinated Meat & Spices",
-                card_3_title: "Trending Snacks", card_3_desc: "Konjac & Casual Food",
-                
-                // About Us
+                nav_home: "Home", nav_solutions: "Solutions", nav_about: "About Us", nav_contact: "Contact HQ",
+                nav_b2b: "Supply Chain", nav_b2c: "Cooperation",
+                hero_subtitle: "Leading Digital Supply Chain Integrator",
+                hero_title_1: "Empowering Global Food Business",
+                hero_title_2: "With Digital Supply Chain",
+                hero_desc: "From source factories to global tables, providing one-stop solutions for 'Premium Sourcing' and 'Business Models'.",
+                hero_cta: "Choose Your Path",
+                stat_ipo: "Listed (2517.HK)",
+                stat_factory: "Partner Factories",
+                stat_halal: "Certified System",
+                stat_unicorn: "Unicorn Enterprise",
+                gateway_title: "Customize Your Business Solution",
+                gateway_b2b_role: "I am a Buyer",
+                gateway_b2b_desc: "Sourcing factories, stable supply, and supermarket sales solutions.",
+                gateway_b2b_btn: "Enter B2B Zone",
+                gateway_b2c_role: "I am an Entrepreneur",
+                gateway_b2c_desc: "Seeking store projects, business models, and profitable opportunities.",
+                gateway_b2c_btn: "Enter Cooperation Zone",
+                about_badge_label: "Recognized By",
+                about_badge_val: "Forbes Gazelle & Unicorn Enterprise",
                 about_tag: "About GUOQUAN LIFE",
                 about_title: "China's Leading Digital Community Meal Solution Provider",
-                about_desc_1: "Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a \"Unicorn\" enterprise in the food sector.",
-                about_desc_2: "With over <strong>9,660 retail stores</strong> serving millions of families, we have digitally reconstructed the traditional supply chain. Now, we are opening this proven, high-efficiency supply chain to global partners, offering premium ingredients with extreme cost-effectiveness.",
-                about_badge_label: "Recognized By", about_badge_val: "Forbes Gazelle & Unicorn Enterprise",
-                about_stat_1_val: "2017", about_stat_1_lbl: "Founded", about_stat_2_val: "30+", about_stat_2_lbl: "Listed Partners", about_stat_3_val: "ISO", about_stat_3_lbl: "Certified",
-
-                // Factory
-                factory_title: "Supply Chain Powerhouse",
-                factory_desc: "Massive scale, digital management, and strict quality control. We guarantee stability for your business.",
-                fac_1: "Partner Factories", fac_1_val: "350+", 
-                fac_2: "Warehouses", fac_2_val: "17", 
-                fac_3: "Storage Area", fac_3_val: "300k m²",
-                fac_4: "Daily Orders", fac_4_val: "400k+",
-                fac_5: "Logistics Vehicles", fac_5_val: "14,000+",
-
-                // Contact Form
-                contact_tag: "Contact Us", contact_title: "Partner with GUOQUAN LIFE", contact_desc: "Ready to scale your business? Our export team is here to assist you with product selection and logistics.",
-                contact_lbl_email: "Email",
-                contact_lbl_hq: "Headquarters",
-                contact_val_hq: "Shanghai / Zhengzhou, China",
-
-                form_header: "Send an Inquiry", 
-                form_name: "Name", 
-                form_company: "Company", 
-                form_email: "Email Address", 
-                form_msg: "Message / Requirements", 
-                form_btn: "Send Inquiry",
-                success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly.",
-                footer_about: "Publicly Listed Company.<br>Your trusted partner in Global & Halal supply chain.",
-                
+                about_desc_1: "Guoquan Foods (Shanghai) Co., Ltd. was established in 2017 and is a listed company. We have rapidly grown into a 'Unicorn' enterprise in the food sector.",
+                about_desc_2_prefix: "With over",
+                about_desc_2_suffix: "retail stores serving millions of families, we have digitally reconstructed the traditional supply chain. Now, we are opening this proven, high-efficiency supply chain to global partners, offering premium ingredients with extreme cost-effectiveness.",
+                about_stat_1_val: "2017",
+                about_stat_1_lbl: "Founded",
+                about_stat_2_val: "30+",
+                about_stat_2_lbl: "Listed Partners",
+                about_stat_3_val: "ISO",
+                about_stat_3_lbl: "Certified",
+                // 通用表单翻译
+                form_main_title: "General Inquiry",
+                form_main_desc: "Not sure which path fits you? Leave a message, and we'll guide you.",
+                form_title_right: "Send Message",
+                form_name: "Name", form_phone: "Phone", form_email: "Email", form_msg: "Message / Question", form_btn: "Submit Inquiry",
+                contact_hq_label: "Headquarters",
                 // Footer
-                footer_col_1: "Catalog", 
-                footer_col_2: "Company", 
-                footer_col_3: "Contact", 
-                footer_btn: "Email Sales Team"
+                footer_desc: "Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.",
+                footer_links: "Quick Links",
+                footer_info: "Information",
+                footer_privacy: "Privacy Policy",
+                footer_contact: "Contact Us",
+                footer_email_btn: "Send Email",
+                success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly."
             },
-            
-            cn: {
-                nav_solution: "解决方案", nav_product: "产品目录", nav_about: "关于我们", btn_quote: "开始采购",
-                hero_sub: "中国领先的供应链整合商",
-                hero_title: "一站式 · 优质 & <br> <span class='text-yellow-400'>清真</span> 供应链",
-                hero_desc: "我们负责筛选、核验、整合。<br>别再对接10家工厂了，只需对接我们一个可靠伙伴。",
-                btn_explore: "浏览目录", btn_catalog: "索取完整目录",
-                stat_1: "上市企业", stat_2: "合作工厂", stat_3: "清真认证", stat_4: "中国独角兽",
-                
-                pain_title: "厌倦了碎片化采购？", pain_sub: "对接多家工厂和不稳定的质量正在吞噬您的利润。",
-                pain_loss_title: "传统模式", pain_loss_1_head: "多头对接", pain_loss_1_desc: "协调10多家工厂非常累人。", pain_loss_2_head: "质量风险", pain_loss_2_desc: "标准不统一，缺乏清真合规性。",
-                pain_gain_title: "锅圈整合模式", pain_gain_1_head: "一站式伙伴", pain_gain_1_desc: "我们为您管理采购、质检和集货。", pain_gain_2_head: "清真核验", pain_gain_2_desc: "针对穆斯林市场的严格现场核验。",
-
-                sol_tag: "我们的流程", sol_title: "整合供应链体系", sol_desc: "从寻找最好的工厂到交付适销对路的产品。",
-                sol_1_title: "优质寻源", sol_1_desc: "链接350+家经过审计的工厂（火锅、烧烤、零食）。",
-                sol_2_title: "清真核验", sol_2_desc: "针对中亚市场的严格质检和清真证书检查。",
-                sol_3_title: "智能拼柜", sol_3_desc: "将多种SKU（食材+包材）混合装入一个集装箱。",
-                sol_4_title: "出口物流", sol_4_desc: "我们处理报关和冷链物流。您只管收货。",
-
-                prod_sub: "产品目录", prod_title: "精选品类",
-                card_1_title: "火锅系列", card_1_desc: "底料与蘸料（清真）",
-                card_2_title: "烧烤系列", card_2_desc: "腌制肉与调料",
-                card_3_title: "潮流零食", card_3_desc: "魔芋与休闲食品",
-                
+            zh: {
+                nav_home: "首页", nav_solutions: "商业选择", nav_about: "关于我们", nav_contact: "联系总部", nav_b2b: "供应链采购", nav_b2c: "创业合作",
+                hero_subtitle: "中国领先的数字化供应链整合商",
+                hero_title_1: "以数字化供应链",
+                hero_title_2: "赋能全球食品商业",
+                hero_desc: "从源头工厂到全球餐桌，为您提供“优质货源供应”与“商业落地模型”的一站式解决方案。",
+                hero_cta: "选择您的商业角色",
+                stat_ipo: "上市企业 (2517.HK)",
+                stat_factory: "合作工厂",
+                stat_halal: "清真认证体系",
+                stat_unicorn: "中国独角兽企业",
+                gateway_title: "定制您的商业解决方案",
+                gateway_b2b_role: "我是采购商",
+                gateway_b2b_desc: "寻找源头工厂 · 稳定货源 · 超市动销方案",
+                gateway_b2b_btn: "进入 B2B 供应链专区",
+                gateway_b2c_role: "我是创业者",
+                gateway_b2c_desc: "寻找开店项目 · 商业模型 · 赚钱机会",
+                gateway_b2c_btn: "进入创业合作专区",
+                about_badge_label: "荣誉认证",
+                about_badge_val: "福布斯瞪羚 & 独角兽企业",
                 about_tag: "关于锅圈食汇",
-                about_title: "中国领先的社区餐饮数字零售服务商",
-                about_desc_1: "锅圈食品（上海）股份有限公司成立于2017年，是上市企业，也是食品行业公认的“独角兽”企业。",
-                about_desc_2: "我们拥有超过 <strong>9,660家零售门店</strong>，服务亿万家庭。通过数字化重构传统供应链，我们将这套久经考验的高效供应链体系开放给全球合作伙伴，提供极致质价比的优质食材。",
-                about_badge_label: "荣誉认证", about_badge_val: "福布斯中国高增长瞪羚企业 / 独角兽企业",
-                about_stat_1_val: "2017", about_stat_1_lbl: "成立时间", about_stat_2_val: "30+", about_stat_2_lbl: "上市合作伙伴", about_stat_3_val: "ISO", about_stat_3_lbl: "国际认证",
-
-                factory_title: "强大的供应链底盘", 
-                factory_desc: "巨大的规模、数字化的管理和严苛的品控。我们为您提供确定性的供应保障。",
-                fac_1: "合作工厂", fac_1_val: "350+", 
-                fac_2: "仓储中心", fac_2_val: "17", 
-                fac_3: "仓储面积", fac_3_val: "30万 平米",
-                fac_4: "日处理订单", fac_4_val: "40万+",
-                fac_5: "冷链运输车", fac_5_val: "14,000+",
-                
-                contact_tag: "联系我们", contact_title: "与锅圈生活合作", contact_desc: "准备好拓展您的业务了吗？我们的出口团队将协助您进行产品选择和物流规划。",
-                contact_lbl_email: "电子邮箱",
-                contact_lbl_hq: "总部地址",
-                contact_val_hq: "中国 上海 / 郑州",
-
-                form_header: "发送询盘", form_name: "姓名", form_company: "公司名称", form_email: "电子邮箱", form_msg: "留言 / 需求", form_btn: "提交询盘",
-                success_title: "提交成功！", success_desc: "我们团队会尽快联系您。",
-                footer_about: "上市企业。<br>您值得信赖的全球及清真供应链伙伴。",
-                
-                footer_col_1: "产品目录", 
-                footer_col_2: "关于公司", 
-                footer_col_3: "联系我们", 
-                footer_btn: "联系销售团队"
+                about_title: "中国领先的数字社区餐饮解决方案提供商",
+                about_desc_1: "锅圈食品（上海）股份有限公司成立于2017年，是一家上市企业。我们在食品领域迅速成长为“独角兽”企业。",
+                about_desc_2_prefix: "我们拥有超过",
+                about_desc_2_suffix: "家零售门店，服务数百万家庭，数字化重构了传统供应链。现在，我们将这一经过验证的高效供应链开放给全球合作伙伴，提供极致性价比的优质食材。",
+                about_stat_1_val: "2017",
+                about_stat_1_lbl: "成立年份",
+                about_stat_2_val: "30+",
+                about_stat_2_lbl: "上市合作伙伴",
+                about_stat_3_val: "ISO",
+                about_stat_3_lbl: "国际认证",
+                // 通用表单翻译
+                form_main_title: "联系总部",
+                form_main_desc: "不确定哪种合作模式适合您？请留言，我们将为您提供指导。",
+                form_title_right: "发送留言",
+                form_name: "姓名", form_phone: "电话", form_email: "电子邮箱", form_msg: "需求 / 留言", form_btn: "提交咨询",
+                contact_hq_label: "总部地址",
+                // Footer
+                footer_desc: "上市企业 (2517.HK)<br>您值得信赖的全球及清真供应链伙伴。",
+                footer_links: "快速链接",
+                footer_info: "公司信息",
+                footer_privacy: "隐私政策",
+                footer_contact: "联系我们",
+                footer_email_btn: "发送邮件",
+                success_title: "提交成功！", success_desc: "我们团队会尽快联系您。"
             },
-
             ru: {
-                nav_solution: "Решения", nav_product: "Каталог", nav_about: "О нас", btn_quote: "Начать закупки",
-                hero_sub: "Ведущий интегратор поставок из Китая",
-                hero_title: "Единый партнер. Премиум и <br> <span class='text-yellow-400'>Халяль</span> поставки.",
-                hero_desc: "Мы интегрируем, проверяем и консолидируем. <br>Не работайте с 10 заводами. Работайте с ОДНИМ надежным партнером.",
-                btn_explore: "Каталог", btn_catalog: "Запросить каталог",
-                stat_1: "Публичная", stat_2: "Заводов-партнеров", stat_3: "Халяль сертификация", stat_4: "Единорог Китая",
-                
-                pain_title: "Устали от разрозненных закупок?", pain_sub: "Работа с множеством заводов и нестабильное качество съедают вашу прибыль.",
-                pain_loss_title: "Старый метод", pain_loss_1_head: "Много контактов", pain_loss_1_desc: "Координация с 10+ заводами утомляет.", pain_loss_2_head: "Риск качества", pain_loss_2_desc: "Разные стандарты и проблемы с Халяль.",
-                pain_gain_title: "Интегратор GUOQUAN", pain_gain_1_head: "Единое окно", pain_gain_1_desc: "Мы управляем закупками, контролем и консолидацией.", pain_gain_2_head: "Проверенный Халяль", pain_gain_2_desc: "Строгая проверка для мусульманских рынков.",
-                
-                sol_tag: "Наш процесс", sol_title: "Интегрированная цепочка", sol_desc: "От поиска лучших заводов до доставки готовой продукции.",
-                sol_1_title: "Премиум закупки", sol_1_desc: "Доступ к 350+ проверенным заводам (Хот-пот, Барбекю, Снеки).",
-                sol_2_title: "Халяль контроль", sol_2_desc: "Строгая проверка сертификатов Халяль для рынков Ц. Азии.",
-                sol_3_title: "Умная консолидация", sol_3_desc: "Смешивание разных товаров (Ингредиенты + Упаковка) в один контейнер.",
-                sol_4_title: "Экспорт и Логистика", sol_4_desc: "Мы берем на себя таможню и холодную цепь. Вы просто получаете груз.",
-
-                prod_sub: "Каталог", prod_title: "Категории",
-                card_1_title: "Серия Хот-пот", card_1_desc: "Основы и соусы (Халяль)",
-                card_2_title: "Барбекю и Гриль", card_2_desc: "Маринованное мясо и специи",
-                card_3_title: "Трендовые снеки", card_3_desc: "Конжак и закуски",
-
+                nav_home: "Главная", nav_solutions: "Решения", nav_about: "О нас", nav_contact: "Связаться", nav_b2b: "Поставки (B2B)", nav_b2c: "Партнерство",
+                hero_subtitle: "Ведущий интегратор цифровых цепей поставок",
+                hero_title_1: "Развитие глобального",
+                hero_title_2: "пищевого бизнеса",
+                hero_desc: "От заводов-производителей до глобальных столов: комплексные решения по поставкам и бизнес-моделям.",
+                hero_cta: "Выберите вашу роль",
+                stat_ipo: "Биржа (2517.HK)",
+                stat_factory: "Заводов-партнеров",
+                stat_halal: "Сертификация Халяль",
+                stat_unicorn: "Компания-единорог",
+                gateway_title: "Ваше бизнес-решение",
+                gateway_b2b_role: "Я закупщик (B2B)",
+                gateway_b2b_desc: "Поиск заводов, стабильные поставки и решения для супермаркетов.",
+                gateway_b2b_btn: "Раздел B2B поставок",
+                gateway_b2c_role: "Я предприниматель",
+                gateway_b2c_desc: "Поиск проектов магазинов, бизнес-моделей и возможностей заработка.",
+                gateway_b2c_btn: "Раздел сотрудничества",
+                about_badge_label: "Признание",
+                about_badge_val: "Forbes Gazelle & Unicorn",
                 about_tag: "О GUOQUAN LIFE",
-                about_title: "Ведущий поставщик решений для домашнего питания в Китае",
-                about_desc_1: "Компания Guoquan Foods (Shanghai) Co., Ltd. была основана в 2017 году и является публичной компанией. Мы быстро выросли в предприятие-единорога в пищевом секторе.",
-                about_desc_2: "Имея более <strong>9 660 магазинов</strong>, мы оцифровали традиционную цепочку поставок. Теперь мы открываем эту эффективную систему для глобальных партнеров, предлагая премиальные продукты по выгодным ценам.",
-                about_badge_label: "Признание", about_badge_val: "Forbes Gazelle & Компания-единорог",
-                about_stat_1_val: "2017", about_stat_1_lbl: "Основана", about_stat_2_val: "30+", about_stat_2_lbl: "Партнеров", about_stat_3_val: "ISO", about_stat_3_lbl: "Сертификация",
-
-                factory_title: "Мощность поставок", 
-                factory_desc: "Масштаб, цифровое управление и строгий контроль качества. Мы гарантируем стабильность вашего бизнеса.",
-                fac_1: "Партнерских заводов", fac_1_val: "350+", 
-                fac_2: "Складов", fac_2_val: "17", 
-                fac_3: "Площадь хранения", fac_3_val: "300k m²",
-                fac_4: "Заказов в день", fac_4_val: "400k+",
-                fac_5: "Логистических машин", fac_5_val: "14,000+",
-                
-                contact_tag: "Контакты", contact_title: "Сотрудничество", contact_desc: "Готовы масштабировать бизнес? Наша команда поможет вам с выбором продукции и логистикой.",
-                contact_lbl_email: "Email",
-                contact_lbl_hq: "Штаб-квартира",
-                contact_val_hq: "Шанхай / Чжэнчжоу, Китай",
-
-                form_header: "Отправить запрос", form_name: "Имя", form_company: "Компания", form_email: "Email", form_msg: "Сообщение", form_btn: "Отправить",
-                success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время.",
-                footer_about: "Публичная компания.<br>Ваш надежный партнер в глобальных и Халяль поставках.",
-                
-                footer_col_1: "Продукция", 
-                footer_col_2: "Компания", 
-                footer_col_3: "Контакты", 
-                footer_btn: "Написать нам"
+                about_title: "Ведущий поставщик цифровых решений для общественного питания",
+                about_desc_1: "Guoquan Foods (Shanghai) Co., Ltd. основана в 2017 году и является листинговой компанией. Мы быстро выросли в предприятие-«единорог» в пищевом секторе.",
+                about_desc_2_prefix: "Имея более",
+                about_desc_2_suffix: "розничных магазинов, обслуживающих миллионы семей, мы перестроили традиционную цепочку поставок. Теперь мы открываем эту эффективную систему для глобальных партнеров.",
+                about_stat_1_val: "2017",
+                about_stat_1_lbl: "Основана",
+                about_stat_2_val: "30+",
+                about_stat_2_lbl: "Партнеров",
+                about_stat_3_val: "ISO",
+                about_stat_3_lbl: "Сертификация",
+                // 通用表单翻译
+                form_main_title: "Связаться с нами",
+                form_main_desc: "Не уверены, что выбрать? Оставьте сообщение, и мы поможем.",
+                form_title_right: "Отправить сообщение",
+                form_name: "Имя", form_phone: "Телефон", form_email: "Email", form_msg: "Сообщение", form_btn: "Отправить",
+                contact_hq_label: "Штаб-квартира",
+                // Footer
+                footer_desc: "Листинговая компания (2517.HK)<br>Ваш надежный партнер по глобальным и Халяль поставкам.",
+                footer_links: "Ссылки",
+                footer_info: "Информация",
+                footer_privacy: "Конфиденциальность",
+                footer_contact: "Контакты",
+                footer_email_btn: "Отправить E-mail",
+                success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время."
             }
         };
 
         function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (dict[lang] && dict[lang][key]) {
-                    element.innerHTML = dict[lang][key];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
                 }
             });
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
         }
 
+        // Form Submission Logic (Copied from other pages)
         function submitForm(event) {
             event.preventDefault(); 
             const form = document.getElementById('contactForm');
@@ -644,9 +478,10 @@
             document.getElementById('successMessage').classList.add('hidden');
             document.getElementById('contactForm').classList.remove('hidden');
             const btn = document.querySelector('#contactForm button[type="submit"]');
-            btn.innerText = "Send Inquiry";
+            btn.innerText = "Submit Inquiry";
             btn.disabled = false;
         }
     </script>
+
 </body>
 </html>
