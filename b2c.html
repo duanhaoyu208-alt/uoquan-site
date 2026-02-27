@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Solutions | GUOQUAN LIFE</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <script src="./tailwind.js"></script>
+    
     <style>
-        body { font-family: 'Roboto', 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        /* 使用系统默认字体，防白屏 */
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; scroll-behavior: smooth; }
         .brand-red { background-color: #B91C1C; }
         .text-brand-red { color: #B91C1C; }
         .b2c-hero-section { background-color: #111827; position: relative; overflow: hidden; }
