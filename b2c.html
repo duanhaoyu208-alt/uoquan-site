@@ -53,7 +53,7 @@
                         <a href="index.html#about" class="text-gray-700 hover:text-red-700 font-medium" data-i18n="nav_about">About Us</a>
                     </div>
                     
-                    <select onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded focus:ring-red-700 focus:border-red-700 block p-2">
+                    <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded focus:ring-red-700 focus:border-red-700 block p-2">
                         <option value="en" selected>🇺🇸 English</option>
                         <option value="zh">🇨🇳 中文</option>
                         <option value="ru">🇷🇺 Русский</option>
@@ -247,13 +247,32 @@
         </div>
     </section>
 
+    <section id="target-audience" class="py-16 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-white md:w-2/3">
+                    <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block" data-i18n="target_tag">Who We Are Looking For</span>
+                    <h2 class="text-3xl md:text-4xl font-black mb-4" data-i18n="target_title">Local Distributors & Entrepreneurs</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed" data-i18n="target_desc">
+                        Whether you want to become a regional distributor or start a local food business, we provide complete store opening solutions and stable supply chain support.
+                    </p>
+                </div>
+                <div class="md:w-1/3 flex justify-center md:justify-end">
+                    <a href="#join-form" class="px-8 py-4 brand-red text-white font-bold rounded-lg shadow-lg hover:bg-red-800 transition transform hover:-translate-y-1 text-lg flex items-center gap-2">
+                        <span data-i18n="btn_join_us">Join Us Now</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="join-form" class="py-24 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4">
+        <div class="max-w-5xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-0 bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div class="bg-gray-900 text-white p-8 md:p-12 flex flex-col justify-between">
                     <div>
                         <span class="text-red-500 font-bold uppercase tracking-wider mb-2 block">Cooperation Inquiry</span>
-                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-i18n="form_title_left">Get Opening Guidance</h2>
+                        <h2 class="text-3xl md:text-4xl font-black mb-6" data-i18n="form_title_left">Looking for Partners & Regional Directors</h2>
                         <p class="text-gray-400 mb-8" data-i18n="form_desc_left">Fill out the form to contact our consultants.<br><strong>We don't talk franchise, only how to succeed with our products.</strong></p>
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -266,7 +285,7 @@
                 
                 <div class="p-8 md:p-12">
                     <form id="contactForm" onsubmit="submitForm(event)">
-                        <input type="hidden" name="_subject" value="【B2C 加盟】Cooperation Inquiry">
+                        <input type="hidden" name="_subject" value="【B2C 合作/经销商】Cooperation Inquiry">
                         <input type="hidden" name="_captcha" value="false">
 
                         <h3 class="text-2xl font-bold mb-6 text-gray-900" data-i18n="form_title_right">Fill Your Request</h3>
@@ -288,23 +307,30 @@
                             <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_location">Target Location</label>
                             <input type="text" name="location" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700" placeholder="e.g. Kuala Lumpur">
                         </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_scale">Expected Scale (How many stores?)</label>
+                            <input type="text" name="scale" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-red-700 transition" placeholder="e.g. 1-3 stores">
+                        </div>
+
                         <div class="mb-6">
                             <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="form_interest">Interested Plans (Multi-select)</label>
                             <div class="grid grid-cols-2 gap-3">
                                 <label class="flex items-center space-x-2 cursor-pointer p-2 border border-gray-200 rounded hover:border-red-700 transition">
-                                    <input type="checkbox" name="interests" value="Malatang/Oden" class="accent-red-700"> <span class="text-sm" data-i18n="opt_1">Malatang / Oden</span>
+                                    <input type="checkbox" name="interests" value="Chinese Restaurant" class="accent-red-700"> <span class="text-sm" data-i18n="opt_1">Chinese Restaurant</span>
                                 </label>
                                 <label class="flex items-center space-x-2 cursor-pointer p-2 border border-gray-200 rounded hover:border-red-700 transition">
-                                    <input type="checkbox" name="interests" value="Fried Skewers" class="accent-red-700"> <span class="text-sm" data-i18n="opt_2">Fried Skewers / Boboji</span>
+                                    <input type="checkbox" name="interests" value="Snacks/Street Food" class="accent-red-700"> <span class="text-sm" data-i18n="opt_2">Snacks / Street Food</span>
                                 </label>
                                 <label class="flex items-center space-x-2 cursor-pointer p-2 border border-gray-200 rounded hover:border-red-700 transition">
-                                    <input type="checkbox" name="interests" value="Hotpot/BBQ" class="accent-red-700"> <span class="text-sm" data-i18n="opt_3">Hotpot / BBQ</span>
+                                    <input type="checkbox" name="interests" value="Retail" class="accent-red-700"> <span class="text-sm" data-i18n="opt_3">Retail</span>
                                 </label>
                                 <label class="flex items-center space-x-2 cursor-pointer p-2 border border-gray-200 rounded hover:border-red-700 transition">
-                                    <input type="checkbox" name="interests" value="Retail Store" class="accent-red-700"> <span class="text-sm" data-i18n="opt_4">Retail Store</span>
+                                    <input type="checkbox" name="interests" value="Supermarket" class="accent-red-700"> <span class="text-sm" data-i18n="opt_4">Supermarket</span>
                                 </label>
                             </div>
                         </div>
+
                         <button type="submit" class="w-full brand-red text-white font-bold py-4 rounded hover:bg-red-800 transition shadow-lg transform hover:-translate-y-1" data-i18n="form_btn">
                             Get Product Quote
                         </button>
@@ -375,10 +401,24 @@
                 badge_plan_f: "Plan F", model_6_title: "Specialty BBQ", model_6_desc: "Supplying: Marinated meat skewers, BBQ sauce, dry dip.",
                 badge_plan_g: "Plan G", model_7_title: "Retail Store", model_7_desc: "\"Central Kitchen at Home\" model. If you have an existing shop or supermarket shelves, we provide 300+ SKU retail packaged products for direct sale.",
                 btn_consult: "Consult Plan",
-                form_title_left: "Get Opening Guidance", form_desc_left: "Fill out the form to contact our consultants.<br><strong>We don't talk franchise, only how to succeed with our products.</strong>",
+                
+                // 新增模块翻译
+                target_tag: "Who We Are Looking For",
+                target_title: "Local Distributors & Entrepreneurs",
+                target_desc: "Whether you want to become a regional distributor or start a local food business, we provide complete store opening solutions and stable supply chain support.",
+                btn_join_us: "Join Us Now",
+
+                // 表单翻译更新
+                form_title_left: "Looking for Partners & Regional Directors", 
+                form_desc_left: "Fill out the form to contact our consultants.<br><strong>We don't talk franchise, only how to succeed with our products.</strong>",
                 form_title_right: "Fill Your Request", form_name: "Name", form_phone: "Phone", form_email: "Email", 
                 form_location: "Target Location", form_interest: "Interested Plans (Multi-select)", form_btn: "Get Product Quote",
-                opt_1: "Malatang / Oden", opt_2: "Fried Skewers / Boboji", opt_3: "Hotpot / BBQ", opt_4: "Retail Store",
+                form_scale: "Expected Scale (How many stores?)", // 新增的预计规模
+                opt_1: "Chinese Restaurant", // 选项已更新
+                opt_2: "Snacks / Street Food", 
+                opt_3: "Retail", 
+                opt_4: "Supermarket",
+                
                 footer_desc: "Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.", footer_links: "Quick Links",
                 footer_info: "Information", footer_privacy: "Privacy Policy", footer_contact: "Contact Us", footer_email_btn: "Send Email",
                 success_title: "Sent Successfully!", success_desc: "Our team will contact you shortly."
@@ -402,10 +442,24 @@
                 badge_plan_f: "方案 F", model_6_title: "特色烧烤店", model_6_desc: "提供：腌制肉串、烧烤酱、干料碟。",
                 badge_plan_g: "方案 G", model_7_title: "锅圈零售店", model_7_desc: "“家庭中央厨房”模式。如果您有现成的商铺或超市货架，我们提供300+ SKU 的零售包装产品，直接上架销售。",
                 btn_consult: "咨询此方案",
-                form_title_left: "获取开店指导方案", form_desc_left: "填写表单，联系我们的项目顾问。<br><strong>我们不聊加盟，只聊如何用好产品把店开火。</strong>",
+                
+                // 新增模块翻译
+                target_tag: "我们寻找的伙伴",
+                target_title: "区域经销商与当地创业者",
+                target_desc: "无论您是希望成为当地的区域经销商，还是想在当地做些餐饮生意，我们都能为您提供成熟的开店方案以及解决全套货物供应。",
+                btn_join_us: "立即加入合作",
+
+                // 表单翻译更新
+                form_title_left: "寻找合作伙伴区域负责人", 
+                form_desc_left: "填写表单，联系我们的项目顾问。<br><strong>我们不聊加盟，只聊如何用好产品把店开火。</strong>",
                 form_title_right: "填写您的需求", form_name: "姓名", form_phone: "联系电话", form_email: "电子邮箱", 
-                form_location: "计划开店地区", form_interest: "感兴趣的方案 (多选)", form_btn: "获取产品报价表",
-                opt_1: "麻辣烫/关东煮", opt_2: "炸串/钵钵鸡", opt_3: "火锅/烧烤", opt_4: "锅圈零售店",
+                form_location: "计划开展地区", form_interest: "感兴趣的方案 (多选)", form_btn: "获取产品报价表",
+                form_scale: "预计规模 (多少家店？)", // 新增的预计规模
+                opt_1: "中餐", // 选项已更新
+                opt_2: "小吃", 
+                opt_3: "零售", 
+                opt_4: "超市",
+
                 footer_desc: "上市企业 (2517.HK)<br>您值得信赖的全球及清真供应链伙伴。", footer_links: "快速链接",
                 footer_info: "公司信息", footer_privacy: "隐私政策", footer_contact: "联系我们", footer_email_btn: "发送邮件",
                 success_title: "提交成功！", success_desc: "我们团队会尽快联系您。"
@@ -429,10 +483,24 @@
                 badge_plan_f: "План F", model_6_title: "Специальное BBQ", model_6_desc: "Поставляем: Маринованное мясо, соусы, сухие специи.",
                 badge_plan_g: "План G", model_7_title: "Розничный магазин", model_7_desc: "Модель «Домашняя кухня». Если у вас есть полки, мы предоставим 300+ SKU товаров для продажи.",
                 btn_consult: "Узнать детали",
-                form_title_left: "Получить руководство", form_desc_left: "Заполните форму для связи с консультантом.<br><strong>Мы не продаем франшизу, мы помогаем заработать на продукте.</strong>",
+                
+                // 新增模块翻译
+                target_tag: "Кого мы ищем",
+                target_title: "Региональные дистрибьюторы и предприниматели",
+                target_desc: "Независимо от того, хотите ли вы стать местным дистрибьютором или начать бизнес, мы предоставляем готовые решения для открытия и стабильные поставки.",
+                btn_join_us: "Присоединиться",
+
+                // 表单翻译更新
+                form_title_left: "Поиск партнеров и региональных директоров", 
+                form_desc_left: "Заполните форму для связи с консультантом.<br><strong>Мы не продаем франшизу, мы помогаем заработать на продукте.</strong>",
                 form_title_right: "Заполните заявку", form_name: "Имя", form_phone: "Телефон", form_email: "Email", 
-                form_location: "Место открытия", form_interest: "Интересующие планы (выбор)", form_btn: "Получить прайс-лист",
-                opt_1: "Малатан / Оден", opt_2: "Шашлычки / Бободжи", opt_3: "Хот-пот / Барбекю", opt_4: "Розничный магазин",
+                form_location: "Регион", form_interest: "Интересующие направления", form_btn: "Получить прайс-лист",
+                form_scale: "Ожидаемый масштаб (Сколько магазинов?)", // 新增的预计规模
+                opt_1: "Китайский ресторан", // 选项已更新
+                opt_2: "Закуски / Стритфуд", 
+                opt_3: "Розничная торговля", 
+                opt_4: "Супермаркет",
+
                 footer_desc: "Листинговая компания (2517.HK)<br>Ваш надежный партнер по поставкам.", footer_links: "Ссылки",
                 footer_info: "Информация", footer_privacy: "Конфиденциальность", footer_contact: "Контакты", footer_email_btn: "Отправить E-mail",
                 success_title: "Успешно отправлено!", success_desc: "Мы свяжемся с вами в ближайшее время."
@@ -447,6 +515,12 @@
                 }
             });
         }
+
+        // Initialize translation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const langSelect = document.getElementById('lang-select');
+            if(langSelect) changeLanguage(langSelect.value);
+        });
 
         function switchTab(type) {
             document.getElementById('content-fast').classList.add('hidden');
