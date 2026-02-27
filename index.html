@@ -3,37 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUOQUAN LIFE | Global Food Solutions</title>
-
+    <title>Business Solutions | GUOQUAN LIFE</title>
     <link rel="icon" type="image/png" href="logo.png">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <script src="./tailwind.js"></script>
     
     <style>
-        body { font-family: 'Roboto', 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        /* 使用系统默认字体代替 Google 字体 */
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; scroll-behavior: smooth; }
         .brand-red { background-color: #B91C1C; }
         .text-brand-red { color: #B91C1C; }
-
-        /* --- 首页背景图 --- */
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero-bg.jpg'); 
-            background-color: #1f2937;
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-        @media (min-width: 768px) { .hero-bg { background-attachment: fixed; } }
-
-        .fade-in { animation: fadeIn 0.8s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
+        .b2c-hero-section { background-color: #111827; position: relative; overflow: hidden; }
+        .b2c-hero-bg-img { background-image: url('b2c-hero.jpg'); background-size: cover; background-position: center; }
+        .flow-line::after { content: ''; position: absolute; top: 50%; left: 100%; width: 100%; height: 2px; background: #e5e7eb; z-index: -1; transform: translateY(-50%); }
+        @media (max-width: 768px) { .flow-line::after { display: none; } }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .tab-active { background-color: #B91C1C; color: white; border-color: #B91C1C; }
         img[src=""] { display: none; }
-        .img-placeholder-bg { background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.875rem; font-weight: 500; }
     </style>
 </head>
+    
 <body class="bg-gray-50 text-gray-800">
 
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-md transition-all duration-300">
