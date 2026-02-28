@@ -655,6 +655,21 @@
  id="3LSdwwwCnuBSYkky"
  defer>
 </script>
+<script>
+ var langSelect = document.querySelector('select');
+ var currentSiteLang = langSelect ? langSelect.value : 'en';
+ var langMap = { 'en': 'English', 'zh': '中文', 'ru': 'Русский' };
+
+ window.difyChatbotConfig = {
+  token: '3LSdwwwCnuBSYkky',
+  inputs: { language: langMap[currentSiteLang] || 'English' }
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="3LSdwwwCnuBSYkky"
+ defer>
+</script>
 <style>
   #dify-chatbot-bubble-button {
     position: fixed !important;
@@ -666,8 +681,9 @@
   #dify-chatbot-bubble-window {
     position: fixed !important;
     right: 20px !important;
-    bottom: 85px !important;
-    max-height: calc(100vh - 120px) !important;
+    top: 120px !important;    /* 强制锁定头顶：距离屏幕顶部 120px，死保导航栏 */
+    bottom: 85px !important;  /* 强制锁定脚底：距离屏幕底部 85px，避开按钮 */
+    height: auto !important;  /* 让它在这个安全的“框”里自己伸缩 */
     z-index: 999999 !important;
   }
 </style>
