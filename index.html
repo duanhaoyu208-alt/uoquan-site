@@ -700,7 +700,23 @@
  id="3LSdwwwCnuBSYkky"
  defer>
 </script>
+<script>
+ var langSelect = document.querySelector('select');
+ var currentSiteLang = langSelect ? langSelect.value : 'en';
+ var langMap = { 'en': 'English', 'zh': '中文', 'ru': 'Русский' };
+
+ window.difyChatbotConfig = {
+  token: '3LSdwwwCnuBSYkky',
+  inputs: { language: langMap[currentSiteLang] || 'English' }
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="3LSdwwwCnuBSYkky"
+ defer>
+</script>
 <style>
+  /* 1. 按钮固定在右下角 */
   #dify-chatbot-bubble-button {
     position: fixed !important;
     right: 20px !important;
@@ -708,10 +724,13 @@
     background-color: #B91C1C !important; 
     z-index: 999998 !important;
   }
+  
+  /* 2. 窗口固定跟随，完美卡在按钮上方，且顶部避开导航栏 */
   #dify-chatbot-bubble-window {
     position: fixed !important;
     right: 20px !important;
-    bottom: 90px !important;
+    bottom: 95px !important; /* 底部距离95px：刚好在红色按钮（约60px高）上方留出一个行间距 */
+    max-height: calc(100vh - 120px) !important; /* 动态限高：不管屏幕多大，头顶永远给导航栏留出 120px 的绝对安全区 */
     z-index: 999999 !important;
   }
 </style>
