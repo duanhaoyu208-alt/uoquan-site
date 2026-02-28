@@ -498,24 +498,22 @@
      id="3LSdwwwCnuBSYkky"
      defer>
     </script>
+      <script
+     src="https://udify.app/embed.min.js"
+     id="3LSdwwwCnuBSYkky"
+     defer>
+    </script>
     <style>
-      /* 强制锁定按钮在屏幕右下角，永不被遮挡 */
+      /* 只修改按钮为锅圈红，并拉高图层防遮挡 */
       #dify-chatbot-bubble-button {
-        position: fixed !important;
-        bottom: 30px !important;
-        right: 30px !important;
-        z-index: 999999 !important; /* 图层设到最高，防遮挡 */
         background-color: #B91C1C !important; 
         box-shadow: 0 10px 25px -5px rgba(185, 28, 28, 0.4) !important;
-      }
-      /* 强制锁定聊天窗口在屏幕右下角 */
-      #dify-chatbot-bubble-window {
-        position: fixed !important;
-        bottom: 90px !important;
-        right: 30px !important;
         z-index: 999999 !important;
-        width: 24rem !important;
-        height: 40rem !important;
+      }
+      /* 聊天窗口也拉高图层，但绝对不要再钉死位置了 */
+      #dify-chatbot-bubble-window {
+        z-index: 999999 !important;
       }
     </style>
+    </body>
 </html>
