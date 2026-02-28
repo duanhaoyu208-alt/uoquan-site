@@ -625,22 +625,35 @@
       inputs: { language: langMap[currentSiteLang] || 'English' }
      }
     </script>
-    <script
-     src="https://udify.app/embed.min.js"
-     id="3LSdwwwCnuBSYkky"
-     defer>
-    </script>
-    <style>
-      /* 只修改按钮为锅圈红，并拉高图层防遮挡 */
-      #dify-chatbot-bubble-button {
-        background-color: #B91C1C !important; 
-        box-shadow: 0 10px 25px -5px rgba(185, 28, 28, 0.4) !important;
-        z-index: 999999 !important;
-      }
-      /* 聊天窗口也拉高图层，但绝对不要再钉死位置了 */
-      #dify-chatbot-bubble-window {
-        z-index: 999999 !important;
-      }
-    </style>
+<script>
+ var langSelect = document.querySelector('select');
+ var currentSiteLang = langSelect ? langSelect.value : 'en';
+ var langMap = { 'en': 'English', 'zh': '中文', 'ru': 'Русский' };
+
+ window.difyChatbotConfig = {
+  token: '3LSdwwwCnuBSYkky',
+  inputs: { language: langMap[currentSiteLang] || 'English' }
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="3LSdwwwCnuBSYkky"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    background-color: #B91C1C !important; 
+    z-index: 999998 !important;
+  }
+  #dify-chatbot-bubble-window {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 85px !important;
+    z-index: 999999 !important;
+  }
+</style>
     </body>
 </html>
