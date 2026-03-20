@@ -130,16 +130,75 @@
 
     <section id="models" class="py-20 bg-white bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
+            
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8" data-i18n="cat_title">7 Golden Tracks · Product Solutions</h2>
+                
                 <div class="inline-flex bg-gray-100 p-1 rounded shadow-inner">
-                    <button onclick="switchTab('fast')" id="btn-fast" class="tab-active px-6 py-3 rounded font-bold transition duration-300" data-i18n="tab_fast">Fast Food</button>
+                    <button onclick="switchTab('formats')" id="btn-formats" class="tab-active px-6 py-3 rounded font-bold transition duration-300" data-i18n="tab_formats">Guoquan Formats</button>
+                    <button onclick="switchTab('fast')" id="btn-fast" class="px-6 py-3 rounded font-bold text-gray-500 hover:text-red-700 transition duration-300" data-i18n="tab_fast">Fast Food</button>
                     <button onclick="switchTab('social')" id="btn-social" class="px-6 py-3 rounded font-bold text-gray-500 hover:text-red-700 transition duration-300" data-i18n="tab_social">Social Dining</button>
-                    <button onclick="switchTab('retail')" id="btn-retail" class="px-6 py-3 rounded font-bold text-gray-500 hover:text-red-700 transition duration-300" data-i18n="tab_retail">New Retail</button>
                 </div>
             </div>
 
-            <div id="content-fast" class="fade-in">
+            <div id="content-formats" class="fade-in">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    
+                    <div onclick="openLightbox('Standard Store 6.0', ['store-std6-1.jpg', 'store-std6-2.jpg', 'store-std6-3.jpg'])" 
+                         class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-red-700 hover:shadow-xl transition group flex flex-col cursor-pointer">
+                        <div class="h-48 bg-gray-200 rounded-lg mb-6 overflow-hidden relative">
+                            <img src="store-std6-1.jpg" onerror="this.src='https://picsum.photos/seed/std1/600/800'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Standard Store 6.0">
+                            <span class="absolute top-2 left-2 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                                <i class="fas fa-images"></i> 3 Photos
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition" data-i18n="fmt_std6">Standard Store 6.0</h4>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2" data-i18n="fmt_std6_desc">The latest generation of our classic retail model with upgraded visual identity.</p>
+                        <div class="mt-auto">
+                            <span class="block w-full py-2 border-2 border-red-700 text-red-700 font-bold rounded text-center group-hover:bg-red-700 group-hover:text-white transition">
+                                <span data-i18n="fmt_view">View Gallery</span> <i class="fas fa-search-plus ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div onclick="openLightbox('Camping Store', ['store-camp-1.jpg', 'store-camp-2.jpg', 'store-camp-3.jpg'])" 
+                         class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-red-700 hover:shadow-xl transition group flex flex-col cursor-pointer">
+                        <div class="h-48 bg-gray-200 rounded-lg mb-6 overflow-hidden relative">
+                            <img src="store-camp-1.jpg" onerror="this.src='https://picsum.photos/seed/camp1/600/800'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Camping Store">
+                            <span class="absolute top-2 left-2 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                                <i class="fas fa-images"></i> 3 Photos
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition" data-i18n="fmt_camp">Camping Store</h4>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2" data-i18n="fmt_camp_desc">Designed for outdoor scenarios, scenic spots, and glamping sites.</p>
+                        <div class="mt-auto">
+                            <span class="block w-full py-2 border-2 border-red-700 text-red-700 font-bold rounded text-center group-hover:bg-red-700 group-hover:text-white transition">
+                                <span data-i18n="fmt_view">View Gallery</span> <i class="fas fa-search-plus ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div onclick="openLightbox('Black Pearl Store', ['store-pearl-1.jpg', 'store-pearl-2.jpg', 'store-pearl-3.jpg'])" 
+                         class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-red-700 hover:shadow-xl transition group flex flex-col cursor-pointer">
+                        <div class="h-48 bg-gray-200 rounded-lg mb-6 overflow-hidden relative">
+                            <img src="store-pearl-1.jpg" onerror="this.src='https://picsum.photos/seed/pearl1/600/800'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Black Pearl Store">
+                            <span class="absolute top-2 left-2 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                                <i class="fas fa-images"></i> 3 Photos
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition" data-i18n="fmt_pearl">Black Pearl Store</h4>
+                        <p class="text-sm text-gray-500 mb-6 line-clamp-2" data-i18n="fmt_pearl_desc">High-end premium store format with luxury dining experience and exclusive products.</p>
+                        <div class="mt-auto">
+                            <span class="block w-full py-2 border-2 border-red-700 text-red-700 font-bold rounded text-center group-hover:bg-red-700 group-hover:text-white transition">
+                                <span data-i18n="fmt_view">View Gallery</span> <i class="fas fa-search-plus ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="content-fast" class="hidden fade-in">
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-red-700 hover:shadow-xl transition group flex flex-col">
                         <div class="h-48 bg-gray-200 rounded-lg mb-6 overflow-hidden relative">
@@ -227,25 +286,6 @@
                 </div>
             </div>
 
-            <div id="content-retail" class="hidden fade-in">
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="col-span-3 bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-red-700 hover:shadow-xl transition group flex flex-col md:flex-row items-center gap-8">
-                        <div class="w-full md:w-1/3 h-64 bg-gray-200 rounded-lg overflow-hidden relative">
-                            <img src="model-7.jpg" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition">
-                            <span class="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded" data-i18n="badge_plan_g">Plan G</span>
-                        </div>
-                        <div class="flex-1 w-full">
-                            <h4 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700" data-i18n="model_7_title">Retail Store</h4>
-                            <p class="text-gray-600 mb-6 text-lg" data-i18n="model_7_desc">"Central Kitchen at Home" model. If you have an existing shop or supermarket shelves, we provide 300+ SKU retail packaged products for direct sale.</p>
-                            <div class="mt-auto">
-                                <a href="#join-form" class="inline-block px-8 py-3 border-2 border-red-700 text-red-700 font-bold rounded text-center hover:bg-red-700 hover:text-white transition">
-                                    <span data-i18n="btn_consult">Consult Plan</span> <i class="fas fa-arrow-down ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -381,6 +421,21 @@
         </div>
     </footer>
 
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur flex flex-col items-center justify-center transition-opacity duration-300 opacity-0">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-red-500 text-4xl z-50 focus:outline-none"><i class="fas fa-times"></i></button>
+        
+        <h3 id="lightbox-title" class="absolute top-8 left-8 text-white text-2xl font-bold tracking-widest z-50"></h3>
+        
+        <div class="w-full max-w-5xl h-[70vh] flex items-center justify-center relative px-12">
+            <button onclick="prevImage()" class="absolute left-4 text-white hover:text-red-500 text-4xl focus:outline-none"><i class="fas fa-chevron-left"></i></button>
+            <img id="lightbox-main-img" src="" class="max-w-full max-h-full object-contain rounded shadow-2xl transition duration-300">
+            <button onclick="nextImage()" class="absolute right-4 text-white hover:text-red-500 text-4xl focus:outline-none"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div id="lightbox-counter" class="absolute bottom-8 text-gray-400 font-bold tracking-widest text-sm"></div>
+    </div>
+
+
     <script>
         const translations = {
             en: {
@@ -394,32 +449,39 @@
                 flow_2_title: "Solution Output", flow_2_desc: "Menu suggestions<br>Free SOPs",
                 flow_3_title: "Independent Store (B)", flow_3_desc: "Self-renovation<br>100% Freedom",
                 flow_4_title: "Consumer (C)", flow_4_desc: "High value food<br>High repurchase",
-                cat_title: "7 Golden Tracks · Product Solutions", tab_fast: "Fast Food", tab_social: "Social Dining", tab_retail: "New Retail",
+                
+                cat_title: "7 Golden Tracks · Product Solutions", 
+                tab_formats: "Guoquan Formats",
+                tab_fast: "Fast Food", 
+                tab_social: "Social Dining", 
+                
+                fmt_std6: "Standard Store 6.0",
+                fmt_std6_desc: "The latest generation of our classic retail model with upgraded visual identity.",
+                fmt_camp: "Camping Store",
+                fmt_camp_desc: "Designed for outdoor scenarios, scenic spots, and glamping sites.",
+                fmt_pearl: "Black Pearl Store",
+                fmt_pearl_desc: "High-end premium store format with luxury dining experience and exclusive products.",
+                fmt_view: "View Gallery",
+
                 badge_plan_a: "Plan A", model_1_title: "Malatang / Oden", model_1_desc: "Supplying: Bone/Spicy broth, frozen balls, SOPs.",
                 badge_plan_b: "Plan B", model_2_title: "Fried Skewers", model_2_desc: "Supplying: Semi-finished skewers, secret spices, coating.",
                 badge_plan_c: "Plan C", model_3_title: "Boboji (Cold Pot)", model_3_desc: "Supplying: Red oil sauce, sesame, various skewers.",
                 badge_plan_d: "Plan D", model_4_title: "Chinese Hotpot", model_4_desc: "Supplying: Butter/Tomato base, premium beef rolls.",
                 badge_plan_e: "Plan E", model_5_title: "Skewer Hotpot", model_5_desc: "Supplying: Mini skewers, marinade, soup base.",
                 badge_plan_f: "Plan F", model_6_title: "Specialty BBQ", model_6_desc: "Supplying: Marinated meat skewers, BBQ sauce, dry dip.",
-                badge_plan_g: "Plan G", model_7_title: "Retail Store", model_7_desc: "\"Central Kitchen at Home\" model. If you have an existing shop or supermarket shelves, we provide 300+ SKU retail packaged products for direct sale.",
                 btn_consult: "Consult Plan",
                 
-                // 新增模块翻译
                 target_tag: "Who We Are Looking For",
                 target_title: "Local Distributors & Entrepreneurs",
                 target_desc: "Whether you want to become a regional distributor or start a local food business, we provide complete store opening solutions and stable supply chain support.",
                 btn_join_us: "Join Us Now",
 
-                // 表单翻译更新
                 form_title_left: "Looking for Partners & Regional Directors", 
                 form_desc_left: "Fill out the form to contact our consultants.<br><strong>We don't talk franchise, only how to succeed with our products.</strong>",
                 form_title_right: "Fill Your Request", form_name: "Name", form_phone: "Phone", form_email: "Email", 
                 form_location: "Target Location", form_interest: "Interested Plans (Multi-select)", form_btn: "Get Product Quote",
-                form_scale: "Expected Scale (How many stores?)", // 新增的预计规模
-                opt_1: "Chinese Restaurant", // 选项已更新
-                opt_2: "Snacks / Street Food", 
-                opt_3: "Retail", 
-                opt_4: "Supermarket",
+                form_scale: "Expected Scale (How many stores?)",
+                opt_1: "Chinese Restaurant", opt_2: "Snacks / Street Food", opt_3: "Retail", opt_4: "Supermarket",
                 
                 footer_desc: "Listed Company (2517.HK)<br>Your trusted global and Halal supply chain partner.", footer_links: "Quick Links",
                 footer_info: "Information", footer_privacy: "Privacy Policy", footer_contact: "Contact Us", footer_email_btn: "Send Email",
@@ -435,32 +497,39 @@
                 flow_2_title: "方案输出", flow_2_desc: "提供菜单/选品建议<br>赠送操作SOP",
                 flow_3_title: "独立门店 (B)", flow_3_desc: "自主装修/定价<br>100% 经营自由",
                 flow_4_title: "消费者 (C)", flow_4_desc: "享受高质价比美食<br>提升复购率",
-                cat_title: "七大黄金赛道 · 产品配套方案", tab_fast: "高频快餐", tab_social: "社交聚餐", tab_retail: "新零售",
+                
+                cat_title: "七大黄金赛道 · 产品配套方案", 
+                tab_formats: "锅圈店型",
+                tab_fast: "高频快餐", 
+                tab_social: "社交聚餐", 
+                
+                fmt_std6: "标准店6.0",
+                fmt_std6_desc: "最新一代经典零售店型，品牌视觉与空间动线全面升级。",
+                fmt_camp: "露营店",
+                fmt_camp_desc: "专为户外场景、景区及露营营地量身定制的特色店型。",
+                fmt_pearl: "锅圈黑珍珠店",
+                fmt_pearl_desc: "高端尊享店型，融合奢华堂食体验与专供高规格食材。",
+                fmt_view: "查看图集",
+
                 badge_plan_a: "方案 A", model_1_title: "麻辣烫 / 关东煮", model_1_desc: "提供：骨汤/红汤底料、丸滑冻品、操作SOP。",
                 badge_plan_b: "方案 B", model_2_title: "炸串店", model_2_desc: "提供：半成品肉串、秘制撒料、裹粉。",
                 badge_plan_c: "方案 C", model_3_title: "钵钵鸡店", model_3_desc: "提供：红油料汁、熟制芝麻、各类串串。",
                 badge_plan_d: "方案 D", model_4_title: "中式火锅店", model_4_desc: "提供：牛油/番茄底料、精品肥牛卷、蘸料台配方。",
                 badge_plan_e: "方案 E", model_5_title: "串串火锅店", model_5_desc: "提供：小份串串半成品、腌制料、专用底料。",
                 badge_plan_f: "方案 F", model_6_title: "特色烧烤店", model_6_desc: "提供：腌制肉串、烧烤酱、干料碟。",
-                badge_plan_g: "方案 G", model_7_title: "锅圈零售店", model_7_desc: "“家庭中央厨房”模式。如果您有现成的商铺或超市货架，我们提供300+ SKU 的零售包装产品，直接上架销售。",
                 btn_consult: "咨询此方案",
                 
-                // 新增模块翻译
                 target_tag: "我们寻找的伙伴",
                 target_title: "区域经销商与当地创业者",
                 target_desc: "无论您是希望成为当地的区域经销商，还是想在当地做些餐饮生意，我们都能为您提供成熟的开店方案以及解决全套货物供应。",
                 btn_join_us: "立即加入合作",
 
-                // 表单翻译更新
                 form_title_left: "寻找合作伙伴区域负责人", 
                 form_desc_left: "填写表单，联系我们的项目顾问。<br><strong>我们不聊加盟，只聊如何用好产品把店开火。</strong>",
                 form_title_right: "填写您的需求", form_name: "姓名", form_phone: "联系电话", form_email: "电子邮箱", 
                 form_location: "计划开展地区", form_interest: "感兴趣的方案 (多选)", form_btn: "获取产品报价表",
-                form_scale: "预计规模 (多少家店？)", // 新增的预计规模
-                opt_1: "中餐", // 选项已更新
-                opt_2: "小吃", 
-                opt_3: "零售", 
-                opt_4: "超市",
+                form_scale: "预计规模 (多少家店？)",
+                opt_1: "中餐", opt_2: "小吃", opt_3: "零售", opt_4: "超市",
 
                 footer_desc: "上市企业 (2517.HK)<br>您值得信赖的全球及清真供应链伙伴。", footer_links: "快速链接",
                 footer_info: "公司信息", footer_privacy: "隐私政策", footer_contact: "联系我们", footer_email_btn: "发送邮件",
@@ -476,32 +545,39 @@
                 flow_2_title: "Готовые решения", flow_2_desc: "Меню и подборка<br>Бесплатные SOP",
                 flow_3_title: "Ваш магазин (B)", flow_3_desc: "Свой ремонт<br>100% Свобода",
                 flow_4_title: "Потребитель (C)", flow_4_desc: "Вкусно и выгодно<br>Высокий возврат",
-                cat_title: "7 Золотых Направлений", tab_fast: "Фастфуд", tab_social: "Рестораны", tab_retail: "Ритейл",
+                
+                cat_title: "7 Золотых Направлений", 
+                tab_formats: "Форматы Магазинов",
+                tab_fast: "Фастфуд", 
+                tab_social: "Рестораны", 
+                
+                fmt_std6: "Стандартный магазин 6.0",
+                fmt_std6_desc: "Последнее поколение нашей классической модели с обновленным дизайном.",
+                fmt_camp: "Кемпинг-магазин",
+                fmt_camp_desc: "Разработано для открытых площадок, парков и глэмпингов.",
+                fmt_pearl: "Магазин Черная Жемчужина",
+                fmt_pearl_desc: "Премиальный формат магазина с роскошной зоной для ужина и эксклюзивными продуктами.",
+                fmt_view: "Смотреть галерею",
+
                 badge_plan_a: "План A", model_1_title: "Малатан / Оден", model_1_desc: "Поставляем: Бульоны, замороженные шарики, инструкции.",
                 badge_plan_b: "План B", model_2_title: "Жареные шашлычки", model_2_desc: "Поставляем: Полуфабрикаты, секретные специи, панировку.",
                 badge_plan_c: "План C", model_3_title: "Бободжи (Холодный)", model_3_desc: "Поставляем: Масло чили, кунжут, разнообразные шашлычки.",
                 badge_plan_d: "План D", model_4_title: "Китайский Хот-пот", model_4_desc: "Поставляем: Основы, премиум говядину, рецепты соусов.",
                 badge_plan_e: "План E", model_5_title: "Хот-пот на шпажках", model_5_desc: "Поставляем: Мини-шашлычки, маринады, основы.",
                 badge_plan_f: "План F", model_6_title: "Специальное BBQ", model_6_desc: "Поставляем: Маринованное мясо, соусы, сухие специи.",
-                badge_plan_g: "План G", model_7_title: "Розничный магазин", model_7_desc: "Модель «Домашняя кухня». Если у вас есть полки, мы предоставим 300+ SKU товаров для продажи.",
                 btn_consult: "Узнать детали",
                 
-                // 新增模块翻译
                 target_tag: "Кого мы ищем",
                 target_title: "Региональные дистрибьюторы и предприниматели",
                 target_desc: "Независимо от того, хотите ли вы стать местным дистрибьютором или начать бизнес, мы предоставляем готовые решения для открытия и стабильные поставки.",
                 btn_join_us: "Присоединиться",
 
-                // 表单翻译更新
                 form_title_left: "Поиск партнеров и региональных директоров", 
                 form_desc_left: "Заполните форму для связи с консультантом.<br><strong>Мы не продаем франшизу, мы помогаем заработать на продукте.</strong>",
                 form_title_right: "Заполните заявку", form_name: "Имя", form_phone: "Телефон", form_email: "Email", 
                 form_location: "Регион", form_interest: "Интересующие направления", form_btn: "Получить прайс-лист",
-                form_scale: "Ожидаемый масштаб (Сколько магазинов?)", // 新增的预计规模
-                opt_1: "Китайский ресторан", // 选项已更新
-                opt_2: "Закуски / Стритфуд", 
-                opt_3: "Розничная торговля", 
-                opt_4: "Супермаркет",
+                form_scale: "Ожидаемый масштаб",
+                opt_1: "Китайский ресторан", opt_2: "Закуски / Стритфуд", opt_3: "Розничная торговля", opt_4: "Супермаркет",
 
                 footer_desc: "Листинговая компания (2517.HK)<br>Ваш надежный партнер по поставкам.", footer_links: "Ссылки",
                 footer_info: "Информация", footer_privacy: "Конфиденциальность", footer_contact: "Контакты", footer_email_btn: "Отправить E-mail",
@@ -524,20 +600,21 @@
             if(langSelect) changeLanguage(langSelect.value);
         });
 
+        // --- Tab 切换逻辑 ---
         function switchTab(type) {
+            document.getElementById('content-formats').classList.add('hidden');
             document.getElementById('content-fast').classList.add('hidden');
             document.getElementById('content-social').classList.add('hidden');
-            document.getElementById('content-retail').classList.add('hidden');
             
-            ['btn-fast', 'btn-social', 'btn-retail'].forEach(id => {
+            ['btn-formats', 'btn-fast', 'btn-social'].forEach(id => {
                 document.getElementById(id).className = "px-6 py-3 rounded font-bold text-gray-500 hover:text-red-700 transition duration-300";
             });
             
             document.getElementById('content-' + type).classList.remove('hidden');
-            document.getElementById('btn-' + type).className = "tab-active px-6 py-3 rounded font-bold transition duration-300";
+            document.getElementById('btn-' + type).className = "tab-active px-6 py-3 rounded font-bold transition duration-300 text-white";
         }
 
-        // Form Submission Logic
+        // --- 表单提交 ---
         function submitForm(event) {
             event.preventDefault(); 
             const form = document.getElementById('contactForm');
@@ -572,8 +649,67 @@
             btn.innerText = "Get Product Quote";
             btn.disabled = false;
         }
+
+        // --- Lightbox 相册逻辑 ---
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function openLightbox(title, images) {
+            currentImages = images;
+            currentIndex = 0;
+            
+            const lang = document.getElementById('lang-select').value;
+            let displayTitle = title;
+            if(lang === 'zh') {
+                if(title === 'Standard Store 6.0') displayTitle = '标准店6.0';
+                if(title === 'Camping Store') displayTitle = '露营店';
+                if(title === 'Black Pearl Store') displayTitle = '锅圈黑珍珠店';
+            } else if (lang === 'ru') {
+                if(title === 'Standard Store 6.0') displayTitle = 'Стандартный магазин 6.0';
+                if(title === 'Camping Store') displayTitle = 'Кемпинг-магазин';
+                if(title === 'Black Pearl Store') displayTitle = 'Магазин Черная Жемчужина';
+            }
+
+            document.getElementById('lightbox-title').innerText = displayTitle;
+            updateLightboxImage();
+            
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('hidden');
+            setTimeout(() => { lb.classList.remove('opacity-0'); lb.classList.add('opacity-100'); }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('opacity-100');
+            lb.classList.add('opacity-0');
+            setTimeout(() => { lb.classList.add('hidden'); }, 300);
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function updateLightboxImage() {
+            const imgEl = document.getElementById('lightbox-main-img');
+            imgEl.style.opacity = 0; 
+            setTimeout(() => {
+                imgEl.src = currentImages[currentIndex];
+                imgEl.style.opacity = 1;
+                document.getElementById('lightbox-counter').innerText = `${currentIndex + 1} / ${currentImages.length}`;
+            }, 150);
+        }
+
+        function prevImage() {
+            if (currentImages.length === 0) return;
+            currentIndex = (currentIndex === 0) ? currentImages.length - 1 : currentIndex - 1;
+            updateLightboxImage();
+        }
+
+        function nextImage() {
+            if (currentImages.length === 0) return;
+            currentIndex = (currentIndex === currentImages.length - 1) ? 0 : currentIndex + 1;
+            updateLightboxImage();
+        }
     </script>
-<script>
+    <script>
      window.difyChatbotConfig = {
       token: '3LSdwwwCnuBSYkky'
      }
@@ -583,22 +719,15 @@
      id="3LSdwwwCnuBSYkky"
      defer>
     </script>
-       <script
-     src="https://udify.app/embed.min.js"
-     id="3LSdwwwCnuBSYkky"
-     defer>
-    </script>
     <style>
-      /* 只修改按钮为锅圈红，并拉高图层防遮挡 */
       #dify-chatbot-bubble-button {
         background-color: #B91C1C !important; 
         box-shadow: 0 10px 25px -5px rgba(185, 28, 28, 0.4) !important;
-        z-index: 999999 !important;
+        z-index: 999998 !important;
       }
-      /* 聊天窗口也拉高图层，但绝对不要再钉死位置了 */
       #dify-chatbot-bubble-window {
         z-index: 999999 !important;
       }
     </style>
-    </body>
+</body>
 </html>
